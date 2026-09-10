@@ -952,97 +952,6 @@
     .gl-item .gl-tag{ opacity:1; transform:translateY(0); }
   }
 
-  /* ============================================================
-     PROMOÇÕES — chamativo na home (seção nova, não mexe no resto)
-     ============================================================ */
-  :root{
-    --dot-ml:#D9A426;
-    --dot-amz:#3A2E32;
-    --dot-shp:#EE7B4F;
-  }
-
-  .promo-teaser{ background:var(--paper); }
-  .promo-teaser-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:40px;
-    margin-bottom:60px;
-    flex-wrap:wrap;
-  }
-
-  .promo-mini-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-  }
-  .promo-mini{
-    display:flex;
-    flex-direction:column;
-    background:var(--blush-light);
-    border:1px solid var(--line);
-    border-radius:2px;
-    overflow:hidden;
-    transition:transform 0.4s cubic-bezier(.16,.8,.24,1), box-shadow 0.4s ease;
-  }
-  .promo-mini:hover{ transform:translateY(-6px); box-shadow:0 26px 46px -22px rgba(58,46,50,0.28); }
-
-  .promo-mini-media{
-    position:relative;
-    aspect-ratio:1/1;
-    background:
-      radial-gradient(ellipse 80% 60% at 30% 20%, rgba(242,168,182,0.28), transparent 60%),
-      linear-gradient(150deg,#6B525A 0%, #3A2E32 100%);
-    display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-  }
-  .promo-mini-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .promo-mini-media .ph{
-    color:rgba(247,237,233,0.5);
-    font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase;
-    text-align:center; padding:0 22px; line-height:1.6;
-  }
-  .promo-mini-discount{
-    position:absolute; top:12px; right:12px;
-    background:var(--ink); color:var(--blush-light);
-    font-size:0.68rem; font-weight:600;
-    padding:5px 10px; border-radius:2px;
-    z-index:2;
-  }
-
-  .promo-mini-body{ padding:22px 22px 26px; display:flex; flex-direction:column; gap:12px; flex-grow:1; }
-  .promo-src{ display:flex; align-items:center; gap:8px; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; }
-  .promo-src .dot{ width:7px; height:7px; border-radius:50%; display:inline-block; flex-shrink:0; }
-  .promo-src.ml .dot{ background:var(--dot-ml); }
-  .promo-src.amz .dot{ background:var(--dot-amz); }
-  .promo-src.shp .dot{ background:var(--dot-shp); }
-
-  .promo-mini-body h3{ font-family:var(--serif); font-size:1.08rem; font-weight:500; color:var(--ink); line-height:1.32; }
-
-  .promo-mini-price{ display:flex; align-items:baseline; gap:9px; margin-top:auto; }
-  .promo-mini-price .old{ font-size:0.78rem; color:var(--ink-soft); text-decoration:line-through; }
-  .promo-mini-price .now{ font-family:var(--serif); font-size:1.3rem; color:var(--rose-deep); }
-
-  .promo-mini-cta{
-    margin-top:2px;
-    font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;
-    color:var(--ink);
-    display:inline-flex; align-items:center; gap:6px;
-    transition:color 0.3s ease, gap 0.3s ease;
-  }
-  .promo-mini:hover .promo-mini-cta{ color:var(--rose-deep); gap:10px; }
-
-  .promo-teaser-footer{ margin-top:56px; display:flex; flex-direction:column; align-items:center; gap:18px; }
-  .promo-disclosure{ text-align:center; font-size:0.72rem; color:var(--ink-soft); opacity:0.85; max-width:560px; }
-
-  @media (max-width:980px){
-    .promo-mini-grid{ grid-template-columns:1fr 1fr; }
-    .promo-teaser-head{ margin-bottom:44px; }
-  }
-  @media (max-width:600px){
-    .promo-mini-grid{ grid-template-columns:1fr; gap:18px; }
-    .promo-teaser-footer{ margin-top:40px; }
-  }
 </style>
 </head>
 <body>
@@ -1057,7 +966,6 @@
     <a href="#servicos">Serviços</a>
     <a href="#como-funciona">Como funciona</a>
     <a href="#avaliacoes">Avaliações</a>
-    <a href="promocoes.html">Promoções</a>
     <a href="#contato" class="nav-cta">Agendar</a>
   </nav>
   <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
@@ -1070,7 +978,6 @@
   <a href="#servicos">Serviços</a>
   <a href="#como-funciona">Como funciona</a>
   <a href="#avaliacoes">Avaliações</a>
-  <a href="promocoes.html">Promoções</a>
   <a href="#contato" class="mn-cta">Agendar horário →</a>
 </div>
 
@@ -1109,76 +1016,6 @@
 <div class="pulse-divider" id="pulseDivider1">
   <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
     <path d="M0,60 L180,60 L210,20 L240,100 L270,60 L420,60 C460,60 460,60 500,60 L680,60 L710,20 L740,100 L770,60 L1200,60"/>
-  </svg>
-</div>
-
-<!-- ============ PROMOÇÕES (chamativo) ============ -->
-<section class="promo-teaser section-pad" id="promocoes">
-  <div class="wrap">
-    <div class="promo-teaser-head reveal">
-      <div>
-        <div class="eyebrow"><span class="rule"></span> Aproveite antes que acabe</div>
-        <h2 class="section-title">Promoções para o<br>dia a dia do seu <em>pet.</em></h2>
-      </div>
-      <p class="lede">Selecionamos produtos com bom custo-benefício no Mercado Livre, Amazon e Shopee — para facilitar a rotina de quem cuida.</p>
-    </div>
-
-    <div class="promo-mini-grid">
-      <!-- ⚠️ EXEMPLO 1 — troque imagem, texto, preço e o link de afiliado -->
-      <a href="#" target="_blank" rel="sponsored nofollow noopener" class="promo-mini reveal">
-        <div class="promo-mini-media">
-          <!-- Troque pela foto real do produto -->
-          <span class="ph">Foto do<br>produto</span>
-          <span class="promo-mini-discount">-24%</span>
-        </div>
-        <div class="promo-mini-body">
-          <span class="promo-src ml"><span class="dot"></span> Mercado Livre</span>
-          <h3>Cama Pet Ortopédica Impermeável</h3>
-          <div class="promo-mini-price"><span class="old">R$ 249,90</span><span class="now">R$ 189,90</span></div>
-          <span class="promo-mini-cta">Ver oferta →</span>
-        </div>
-      </a>
-
-      <!-- ⚠️ EXEMPLO 2 — troque imagem, texto, preço e o link de afiliado -->
-      <a href="#" target="_blank" rel="sponsored nofollow noopener" class="promo-mini reveal reveal-delay-1">
-        <div class="promo-mini-media">
-          <span class="ph">Foto do<br>produto</span>
-          <span class="promo-mini-discount">-27%</span>
-        </div>
-        <div class="promo-mini-body">
-          <span class="promo-src amz"><span class="dot"></span> Amazon</span>
-          <h3>Comedouro Elevado Duplo Inox</h3>
-          <div class="promo-mini-price"><span class="old">R$ 109,90</span><span class="now">R$ 79,90</span></div>
-          <span class="promo-mini-cta">Ver oferta →</span>
-        </div>
-      </a>
-
-      <!-- ⚠️ EXEMPLO 3 — troque imagem, texto, preço e o link de afiliado -->
-      <a href="#" target="_blank" rel="sponsored nofollow noopener" class="promo-mini reveal reveal-delay-2">
-        <div class="promo-mini-media">
-          <span class="ph">Foto do<br>produto</span>
-          <span class="promo-mini-discount">-33%</span>
-        </div>
-        <div class="promo-mini-body">
-          <span class="promo-src shp"><span class="dot"></span> Shopee</span>
-          <h3>Peitoral Ajustável Anti-puxão</h3>
-          <div class="promo-mini-price"><span class="old">R$ 59,90</span><span class="now">R$ 39,90</span></div>
-          <span class="promo-mini-cta">Ver oferta →</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="promo-teaser-footer reveal reveal-delay-2">
-      <a href="promocoes.html" class="btn btn-dark">Ver todas as promoções →</a>
-      <p class="promo-disclosure">Este site pode participar de programas de afiliados e receber uma comissão por compras feitas através destes links, sem custo adicional para você.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SIGNATURE DIVIDER (promoções) ============ -->
-<div class="pulse-divider" id="pulseDividerPromo">
-  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path d="M0,60 L220,60 L250,92 L280,28 L310,60 L890,60 L920,28 L950,92 L980,60 L1200,60"/>
   </svg>
 </div>
 
