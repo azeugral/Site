@@ -1,6 +1,7 @@
 /* Amora Maria — a Shih Tzu da Dra. Juliana, em pixel, passeando no fim da seção de dúvidas.
-   Quadros: o caminho em data-pet (assets/img/amora-walk.png), folha horizontal de quadros quadrados olhando
-   para a direita (8 quadros de 54 px, SpriteCook + limpeza em PROJETOS LRGZ/Juliana Cubas/amora-sprite).
+   Quadros: o caminho em data-pet (assets/img/amora-walk.png), folha horizontal de quadros quadrados de 32 px
+   olhando para a direita: 0–3 andando (0 também é a pose parada) e 4 piscando.
+   Versão kawaii desenhada à mão em PROJETOS LRGZ/Juliana Cubas/amora-sprite/kawaii.py.
    Enquanto a folha não existir, a trilha fica escondida. Anda, para, deixa pegadinhas;
    com clique/toque dá um pulinho e solta um coração. Só roda com a trilha visível.
    Com movimento reduzido fica parada (mas ainda responde ao clique). */
@@ -10,9 +11,12 @@
   const SRC = track.dataset.pet;          // vazio = sprite ainda não existe
   if (!SRC) { track.remove(); return; }
   const NAME = 'Amora';
-  const FPS = 9;
-  const SCALE = 2;  // cada pixel do desenho vira 2 px na tela
-  const SPEED = 22; // px/s
+  const FPS = 8;
+  const WALK = 4;     // quadros de caminhada; o seguinte é a piscadinha
+  const BLINK = 4;
+  const FOOT = 3;    // linhas vazias abaixo das patinhas no desenho
+  const SCALE = 2;   // cada pixel do desenho vira 2 px na tela
+  const SPEED = 18;  // px/s
   const PX = 2;     // pixel dos efeitos
   const FX_PAL = { K: '#6A4450', H: '#E0788F' };
   const HEART = ['.KK.KK.', 'KHHKHHK', 'KHHHHHK', '.KHHHK.', '..KHK..', '...K...'];
@@ -28,6 +32,7 @@
   function init() {
     const SH = sheet.naturalHeight, SW = SH;         // quadros quadrados na folha
     const FRAMES = Math.max(1, Math.round(sheet.naturalWidth / SW));
+    const canBlink = FRAMES > BLINK;
     const FW = SW * SCALE, FH = SH * SCALE;          // tamanho na tela
 
     track.hidden = false;
@@ -40,6 +45,7 @@
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
     view.width = FW * dpr; view.height = FH * dpr;
     view.style.width = FW + 'px'; view.style.height = FH + 'px';
+    dog.style.bottom = (6 - FOOT * SCALE) + 'px';    // patinhas encostam no fio
     dog.appendChild(view);
     track.appendChild(dog);
     const vctx = view.getContext('2d');
@@ -47,6 +53,7 @@
 
     let x = 0, dir = -1, state = 'idle', until = 0, fi = 0, frameT = 0, t = 0;
     let hop = 0, running = false, raf = 0, last = 0, petCount = 0, printX = 0, printSide = 0;
+    let blinkAt = 0, blinkUntil = 0;
 
     const maxX = () => Math.max(0, track.clientWidth - FW);
 
@@ -57,7 +64,9 @@
     }
 
     function draw() {
-      const f = state === 'walk' ? fi % FRAMES : 0;
+      const now = performance.now();
+      if (canBlink && !reduce && now > blinkAt) { blinkUntil = now + 150; blinkAt = now + rand(2200, 5000); }
+      const f = state === 'walk' ? fi % Math.min(WALK, FRAMES) : (canBlink && now < blinkUntil ? BLINK : 0);
       vctx.setTransform(1, 0, 0, 1, 0, 0);
       vctx.clearRect(0, 0, view.width, view.height);
       if (dir < 0) vctx.setTransform(-1, 0, 0, 1, view.width, 0); // o desenho olha para a direita
