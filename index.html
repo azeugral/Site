@@ -1133,6 +1133,33 @@
     .about-stamp svg.ring{ animation:none; }
   }
 
+
+  /* =====================================================================
+     AJUSTES DE CELULAR (out/2026): fotos verticais em molduras verticais
+     ===================================================================== */
+  .about-media-inner img, .gl-item img{ object-position:50% 28%; }
+  /* Amora: sem quadrado azul de toque/foco (o foco por teclado continua visível) */
+  .pet__dog{ -webkit-tap-highlight-color:transparent; outline:none; -webkit-user-select:none; user-select:none; }
+  .pet__dog:focus:not(:focus-visible){ outline:none; }
+  .pet__dog canvas{ display:block; pointer-events:none; }
+
+  @media (max-width:980px){
+    /* foto do Sobre: retrato, não paisagem */
+    .about-media{ max-width:440px; width:100%; margin:0 auto; }
+    .about-media-inner{ aspect-ratio:4/5; }
+    /* galeria: 3 colunas de retratos; a última foto fecha a grade na largura toda */
+    .gallery-grid{ grid-template-columns:repeat(3,1fr); grid-auto-rows:auto; }
+    .gl-item, .gl-item.tall{ grid-column:auto; grid-row:auto; aspect-ratio:3/4; }
+    .gl-item:last-child{ grid-column:1 / -1; aspect-ratio:4/3; }
+    .gl-item:last-child img{ object-position:50% 40%; }
+  }
+  @media (max-width:600px){
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); gap:8px; }
+  }
+  @media (max-width:400px){
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:auto; }
+    .gl-item, .gl-item.tall{ grid-row:auto; }
+  }
 </style>
 </head>
 <body>
