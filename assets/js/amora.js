@@ -1,7 +1,7 @@
 /* Amora Maria — a Shih Tzu da Dra. Juliana, em pixel, passeando no fim da seção de dúvidas.
-   Quadros: o caminho em data-pet (assets/img/amora-walk.png), folha horizontal de quadros quadrados de 32 px
-   olhando para a direita: 0–3 andando (0 também é a pose parada) e 4 piscando.
-   Versão kawaii desenhada à mão em PROJETOS LRGZ/Juliana Cubas/amora-sprite/kawaii.py.
+   Quadros: o caminho em data-pet (assets/img/amora-walk.png), folha horizontal de 4 quadros 24x24
+   olhando para a direita (0 também é a pose parada). Proposta 01 "Pixel mínimo", gerada por
+   PROJETOS LRGZ/Juliana Cubas/amora-sprite/pixel-minimo.py. Se a folha ganhar um 5º quadro, ele vira piscadinha.
    Enquanto a folha não existir, a trilha fica escondida. Anda, para, deixa pegadinhas;
    com clique/toque dá um pulinho e solta um coração. Só roda com a trilha visível.
    Com movimento reduzido fica parada (mas ainda responde ao clique). */
@@ -15,7 +15,7 @@
   const WALK = 4;     // quadros de caminhada; o seguinte é a piscadinha
   const BLINK = 4;
   const FOOT = 3;    // linhas vazias abaixo das patinhas no desenho
-  const SCALE = 2;   // cada pixel do desenho vira 2 px na tela
+  const SCALE = 3;   // cada pixel do desenho vira 3 px na tela
   const SPEED = 18;  // px/s
   const PX = 2;     // pixel dos efeitos
   const FX_PAL = { K: '#6A4450', H: '#E0788F' };
