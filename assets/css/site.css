@@ -120,6 +120,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   opacity: 0; filter: blur(10px) saturate(.92); transform: scale(1.07);
   transition: opacity 1.3s var(--ease), filter 1.6s var(--ease), transform 2.6s var(--ease);
 }
+/* garantia: se o JS não rodar, tudo aparece sozinho depois de 5 s */
+.hero-foto img, .hero-texto > * { animation: garante 0s 5s forwards; }
+@keyframes garante { to { opacity: 1; transform: none; filter: none; } }
 .hero.entrou .hero-foto img { opacity: 1; filter: blur(0) saturate(.92); transform: scale(1); }
 .hero-foto .veu { position: absolute; inset: 0; background: linear-gradient(100deg, transparent 40%, rgba(253, 244, 242, .5) 75%); pointer-events: none; }
 .hero-texto { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--cab) + 5vh) max(var(--gut), (100vw - 1320px) / 2) 6vh clamp(10px, 2vw, 30px); margin-left: -6vw; }

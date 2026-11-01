@@ -12,7 +12,7 @@
   /* entrada do topo: espera a foto para não piscar */
   const hero = $('.hero');
   const foto = $('.hero-foto img');
-  const entra = () => requestAnimationFrame(() => hero.classList.add('entrou'));
+  const entra = () => setTimeout(() => hero.classList.add('entrou'), 30);
   if (foto && !foto.complete) { foto.addEventListener('load', entra, { once: true }); foto.addEventListener('error', entra, { once: true }); setTimeout(entra, 1600); }
   else entra();
 
