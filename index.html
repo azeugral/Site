@@ -2,20 +2,20 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dra. Juliana Cubas | Veterinária a Domicílio — Tietê, SP</title>
-<meta name="description" content="Atendimento veterinário a domicílio em Tietê-SP. Consultas, exames, vacinação e acompanhamento do seu pet, no conforto de casa, com a Dra. Juliana Cubas.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dra. Juliana Cubas | Veterinária a domicílio em Tietê-SP</title>
+<meta name="description" content="Veterinária a domicílio em Tietê e região. Consulta, vacina, coleta de exames e acompanhamento de cães e gatos em casa, com hora marcada. CRMV-SP 76.595.">
 <link rel="canonical" href="https://julianacubasvet.com.br/">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<meta name="theme-color" content="#3A2E32">
+<meta name="theme-color" content="#fdf4f2">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://julianacubasvet.com.br/">
-<meta property="og:title" content="Dra. Juliana Cubas | Veterinária a Domicílio em Tietê">
-<meta property="og:description" content="Consultas, exames, vacinas e acompanhamento do seu pet no conforto de casa. Tietê e região, com hora marcada.">
-<meta property="og:image" content="https://julianacubasvet.com.br/assets/img/og.jpg">
+<meta property="og:title" content="Dra. Juliana Cubas | Veterinária a domicílio em Tietê">
+<meta property="og:description" content="Consulta, vacina, exames e acompanhamento do seu pet em casa. Tietê e região, com hora marcada.">
+<meta property="og:image" content="https://julianacubasvet.com.br/assets/img/og.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -24,1736 +24,300 @@
 {
   "@context":"https://schema.org",
   "@type":"VeterinaryCare",
-  "name":"Dra. Juliana Cubas — Veterinária a Domicílio",
+  "name":"Dra. Juliana Cubas, veterinária a domicílio",
   "url":"https://julianacubasvet.com.br/",
-  "image":"https://julianacubasvet.com.br/assets/img/og.jpg",
+  "image":"https://julianacubasvet.com.br/assets/img/og.jpg?v=2",
   "telephone":"+55 15 99689-3103",
   "address":{"@type":"PostalAddress","addressLocality":"Tietê","addressRegion":"SP","addressCountry":"BR"},
   "areaServed":"Tietê e região, SP",
   "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"description":"Com hora marcada"},
+  "employee":{"@type":"Person","name":"Juliana Cubas","jobTitle":"Médica Veterinária, CRMV-SP 76.595","alumniOf":{"@type":"EducationalOrganization","name":"EBRAMEV, Escola Brasileira de Medicina Veterinária"}},
   "sameAs":["https://www.instagram.com/julianacubasvet/"]
 }
 </script>
 
-<link rel="preload" as="image" href="assets/img/logo.webp">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --ink:#3A2E32;
-    --ink-soft:#7A6066;
-    --blush:#FDF1F3;
-    --blush-light:#FFFBFC;
-    --paper:#FFFFFF;
-    --rose:#F2A8B6;
-    --rose-deep:#E0788F;
-    --sage:#D391A0;
-    --sage-light:#F6C6D0;
-    --line: rgba(58,46,50,0.10);
-    --line-soft: rgba(58,46,50,0.06);
-
-    --serif: "Fraunces", "Iowan Old Style", serif;
-    --sans: "Albert Sans", -apple-system, sans-serif;
-
-    --section-pad: 140px;
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
-  }
-
-  body{
-    background:var(--blush);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:16px;
-    line-height:1.6;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  ::selection{ background:var(--rose); color:var(--blush-light); }
-  a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
-
-  .wrap{
-    max-width:1180px;
-    margin:0 auto;
-    padding-left:6vw;
-    padding-right:6vw;
-  }
-
-  /* ============ SCROLL REVEAL ============ */
-  .reveal{
-    opacity:0;
-    transform:translateY(28px);
-    transition: opacity 0.9s cubic-bezier(.16,.8,.24,1), transform 0.9s cubic-bezier(.16,.8,.24,1);
-  }
-  .reveal.is-visible{ opacity:1; transform:translateY(0); }
-  .reveal-delay-1.is-visible{ transition-delay:0.1s; }
-  .reveal-delay-2.is-visible{ transition-delay:0.2s; }
-  .reveal-delay-3.is-visible{ transition-delay:0.3s; }
-
-  /* ============ TOPBAR ============ */
-  .topbar{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:500;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:26px 6vw;
-    transition: padding 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
-  }
-  .topbar.scrolled{
-    padding:16px 6vw;
-    background:rgba(247,237,233,0.92);
-    backdrop-filter: blur(10px);
-    box-shadow:0 1px 0 var(--line);
-  }
-  .brandmark{
-    font-family:var(--serif);
-    font-size:1.3rem;
-    font-weight:500;
-    letter-spacing:0.01em;
-    color:var(--blush-light);
-    transition:color 0.4s ease;
-    display:flex;
-    align-items:center;
-  }
-  .topbar.scrolled .brandmark{ color:var(--ink); }
-  .brandmark .cross{
-    color:var(--rose);
-    font-weight:400;
-    margin:0 2px;
-  }
-
-  /* Logo em imagem (opcional) */
-  .brandmark-img{
-    height:90px;
-    width:auto;
-    display:block;
-    transition:filter 0.4s ease, opacity 0.4s ease;
-  }
-  .topbar.scrolled .brandmark-img{
-    filter:brightness(0) saturate(100%);
-    opacity:0.88;
-  }
-  @media (max-width:600px){ .brandmark-img{ height:28px; } }
-
-  .nav-links{ display:flex; gap:38px; align-items:center; }
-  .nav-links a{
-    font-size:0.78rem;
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    color:var(--blush-light);
-    opacity:0.88;
-    transition:color 0.4s ease, opacity 0.25s ease;
-    position:relative;
-    padding-bottom:4px;
-  }
-  .topbar.scrolled .nav-links a{ color:var(--ink-soft); }
-  .nav-links a::after{
-    content:'';
-    position:absolute; left:0; right:100%; bottom:0;
-    height:1px; background:currentColor;
-    transition:right 0.35s ease;
-  }
-  .nav-links a:hover::after{ right:0; }
-  .nav-links a:hover{ opacity:1; }
-
-  .nav-cta{
-    border:1px solid var(--blush-light);
-    color:var(--blush-light) !important;
-    padding:10px 22px;
-    border-radius:2px;
-    font-size:0.74rem !important;
-    transition:background 0.3s ease, color 0.3s ease, border-color 0.4s ease;
-  }
-  .topbar.scrolled .nav-cta{ border-color:var(--ink); color:var(--ink) !important; }
-  .nav-cta:hover{ background:var(--rose); border-color:var(--rose); color:var(--blush-light) !important; }
-  .nav-cta::after{ display:none; }
-
-  .nav-toggle{
-    display:none;
-    width:26px; height:20px;
-    position:relative;
-    cursor:pointer;
-    background:none;
-    border:none;
-    z-index:600;
-  }
-  .nav-toggle span{
-    position:absolute; left:0; width:100%; height:1px;
-    background:var(--blush-light);
-    transition:transform 0.3s ease, opacity 0.3s ease, background 0.4s ease;
-  }
-  .topbar.scrolled .nav-toggle span{ background:var(--ink); }
-  .nav-toggle span:nth-child(1){ top:0; }
-  .nav-toggle span:nth-child(2){ top:9px; }
-  .nav-toggle span:nth-child(3){ top:18px; }
-  .nav-toggle.active span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-  .nav-toggle.active span:nth-child(2){ opacity:0; }
-  .nav-toggle.active span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
-  .nav-toggle.active span{ background:var(--ink) !important; }
-
-  /* ============ HERO ============ */
-  .hero{
-    position:relative;
-    height:100vh;
-    min-height:680px;
-    display:flex;
-    align-items:flex-end;
-    overflow:hidden;
-    background:var(--ink);
-  }
-  .hero-media{ position:absolute; inset:0; width:100%; height:100%; overflow:hidden; }
-  .hero-media video, .hero-media .hero-fallback{
-    position:absolute;
-    top:50%; left:50%;
-    width:100%; height:100%;
-    min-width:100%; min-height:100%;
-    object-fit:cover;
-    transform:translate(-50%,-50%) scale(1.08);
-    will-change:transform;
-  }
-  .hero-fallback{
-    background:
-      radial-gradient(ellipse 80% 60% at 30% 20%, rgba(242,168,182,0.4), transparent 60%),
-      radial-gradient(ellipse 70% 70% at 80% 80%, rgba(224,120,143,0.3), transparent 65%),
-      linear-gradient(160deg, #4A3640 0%, #3A2E32 55%, #2A2025 100%);
-  }
-  .hero-fallback::before{
-    content:'';
-    position:absolute; inset:0;
-    background-image: repeating-linear-gradient(115deg, transparent 0 64px, rgba(255,255,255,0.025) 64px 65px);
-  }
-  .hero-overlay{
-    position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(35,22,27,0.32) 0%, rgba(35,22,27,0.18) 38%, rgba(35,22,27,0.78) 100%);
-    z-index:2;
-  }
-  .hero-grain{
-    position:absolute; inset:0;
-    opacity:0.05;
-    z-index:3;
-    pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-
-  .hero-content{
-    position:relative;
-    z-index:4;
-    width:100%;
-    padding:0 6vw 9vh;
-    color:var(--blush-light);
-  }
-  .hero-eyebrow{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    font-size:0.78rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--rose);
-    margin-bottom:26px;
-    opacity:0;
-    animation:fadeUp 1s 0.3s cubic-bezier(.16,.8,.24,1) forwards;
-  }
-  .hero-eyebrow .rule{ width:38px; height:1px; background:var(--rose); display:inline-block; }
-
-  .hero-title{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:clamp(2.6rem, 6.8vw, 5.8rem);
-    line-height:1.02;
-    letter-spacing:-0.01em;
-    max-width:880px;
-    opacity:0;
-    animation:fadeUp 1.1s 0.45s cubic-bezier(.16,.8,.24,1) forwards;
-  }
-  .hero-title em{ font-style:italic; color:var(--rose); font-weight:400; }
-
-  .hero-sub{
-    margin-top:28px;
-    max-width:500px;
-    font-size:1.05rem;
-    line-height:1.7;
-    color:rgba(247,237,233,0.84);
-    font-weight:400;
-    opacity:0;
-    animation:fadeUp 1.1s 0.65s cubic-bezier(.16,.8,.24,1) forwards;
-  }
-
-  .hero-actions{
-    margin-top:44px;
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
-    align-items:center;
-    opacity:0;
-    animation:fadeUp 1.1s 0.85s cubic-bezier(.16,.8,.24,1) forwards;
-  }
-
-  @keyframes fadeUp{
-    from{ opacity:0; transform:translateY(22px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:var(--sans);
-    font-size:0.82rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    font-weight:600;
-    padding:17px 30px;
-    border-radius:2px;
-    transition:transform 0.35s cubic-bezier(.16,.8,.24,1), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--rose);
-    color:var(--blush-light);
-    box-shadow:0 8px 24px -8px rgba(201,140,130,0.5);
-  }
-  .btn-primary:hover{ background:var(--rose-deep); transform:translateY(-2px); }
-  .btn-ghost{ border:1px solid rgba(247,237,233,0.35); color:var(--blush-light); }
-  .btn-ghost:hover{ border-color:var(--blush-light); transform:translateY(-2px); }
-  .btn-dark{ border:1px solid var(--ink); color:var(--ink); }
-  .btn-dark:hover{ background:var(--ink); color:var(--blush-light); transform:translateY(-2px); }
-
-  .scroll-cue{
-    position:absolute;
-    right:6vw; bottom:42px;
-    z-index:4;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    color:rgba(247,237,233,0.6);
-  }
-  .scroll-cue .line{
-    width:1px; height:54px;
-    background:linear-gradient(to bottom, rgba(247,237,233,0.7), transparent);
-    position:relative;
-    overflow:hidden;
-  }
-  .scroll-cue .line::after{
-    content:'';
-    position:absolute; left:0; top:-100%; width:100%; height:50%;
-    background:var(--rose);
-    animation:scrollline 2.2s ease-in-out infinite;
-  }
-  @keyframes scrollline{ 0%{top:-50%;} 60%{top:100%;} 100%{top:100%;} }
-  .scroll-cue span{
-    font-size:0.68rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    writing-mode:vertical-rl;
-  }
-
-  /* ============ SIGNATURE PULSE LINE (divider) ============ */
-  .pulse-divider{
-    position:relative;
-    height:130px;
-    width:100%;
-    overflow:hidden;
-  }
-  .pulse-divider svg{
-    position:absolute;
-    top:50%; left:0;
-    width:100%;
-    transform:translateY(-50%);
-  }
-  .pulse-divider path{
-    stroke:var(--rose);
-    stroke-width:1.4;
-    fill:none;
-    stroke-dasharray:1500;
-    stroke-dashoffset:1500;
-    transition:stroke-dashoffset 1.7s cubic-bezier(.16,.8,.24,1);
-  }
-  .pulse-divider.is-visible path{ stroke-dashoffset:0; }
-
-  /* ============ SECTION GENERIC ============ */
-  section{ position:relative; }
-  .section-pad{ padding:var(--section-pad) 0; }
-
-  .eyebrow{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    font-size:0.76rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--rose-deep);
-    margin-bottom:22px;
-    font-weight:600;
-  }
-  .eyebrow .rule{ width:30px; height:1px; background:var(--rose-deep); }
-
-  h2.section-title{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:clamp(2rem, 4.2vw, 3.4rem);
-    line-height:1.08;
-    color:var(--ink);
-    letter-spacing:-0.01em;
-  }
-  h2.section-title em{ font-style:italic; color:var(--rose-deep); }
-
-  .lede{
-    font-size:1.05rem;
-    line-height:1.75;
-    color:var(--ink-soft);
-    max-width:560px;
-  }
-
-  /* ============ SOBRE ============ */
-  .about{ background:var(--blush); }
-  .about-grid{
-    display:grid;
-    grid-template-columns:0.85fr 1.15fr;
-    gap:7vw;
-    align-items:center;
-  }
-  .about-media{ position:relative; border-radius:2px; overflow:hidden; }
-  .about-media-inner{
-    position:relative;
-    aspect-ratio:4/5.1;
-    overflow:hidden;
-    border-radius:2px;
-    background:
-      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(242,168,182,0.3), transparent 60%),
-      linear-gradient(150deg,#6B525A 0%, #3A2E32 60%, #2A2025 100%);
-  }
-  .about-media-inner img{
-    position:absolute; inset:0;
-    width:100%; height:100%; object-fit:cover;
-  }
-  .about-media-tag{
-    position:absolute;
-    bottom:22px; left:22px;
-    background:var(--blush-light);
-    padding:14px 20px;
-    border-radius:2px;
-    box-shadow:0 18px 38px -14px rgba(46,40,37,0.35);
-    z-index:3;
-  }
-  .about-media-tag .num{ font-family:var(--serif); font-size:1.9rem; color:var(--rose-deep); line-height:1; }
-  .about-media-tag .lbl{ font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px; }
-
-  .about-copy p{ color:var(--ink-soft); font-size:1.05rem; line-height:1.8; margin-bottom:20px; }
-  .about-copy p:first-of-type{
-    font-family:var(--serif);
-    font-size:1.4rem;
-    line-height:1.5;
-    color:var(--ink);
-    font-weight:400;
-  }
-  .about-sign{ margin-top:36px; display:flex; align-items:center; gap:18px; }
-  .about-sign .signature{ font-family:var(--serif); font-style:italic; font-size:1.7rem; color:var(--ink); white-space:nowrap; }
-  .about-sign .role{
-    font-size:0.74rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    border-left:1px solid var(--line);
-    padding-left:18px;
-  }
-
-  /* ============ STATS STRIP ============ */
-  .stats{ background:var(--ink); color:var(--blush-light); }
-  .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-  .stat{ padding:64px 0; text-align:center; border-right:1px solid rgba(247,237,233,0.12); }
-  .stat:last-child{ border-right:none; }
-  .stat .num{ font-family:var(--serif); font-size:clamp(2.2rem,4vw,3.1rem); color:var(--sage-light); line-height:1; }
-  .stat .lbl{ margin-top:10px; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(247,237,233,0.7); }
-
-  /* ============ SERVICES ============ */
-  .services{ background:var(--paper); }
-  .services-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:40px;
-    margin-bottom:74px;
-    flex-wrap:wrap;
-  }
-
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-  }
-  .service-card{
-    background:var(--paper);
-    padding:48px 38px;
-    position:relative;
-    overflow:hidden;
-    transition:background 0.45s ease;
-    min-height:320px;
-    display:flex;
-    flex-direction:column;
-  }
-  .service-card::before{
-    content:'';
-    position:absolute; left:0; bottom:0; right:0; height:0;
-    background:var(--ink);
-    transition:height 0.45s cubic-bezier(.16,.8,.24,1);
-    z-index:0;
-  }
-  .service-card:hover::before{ height:100%; }
-  .service-card > *{ position:relative; z-index:1; }
-
-  .service-index{ font-family:var(--serif); font-style:italic; font-size:0.95rem; color:var(--rose-deep); transition:color 0.4s ease; }
-  .service-card:hover .service-index{ color:var(--sage-light); }
-
-  .service-card h3{
-    font-family:var(--serif);
-    font-size:1.45rem;
-    font-weight:500;
-    margin-top:22px;
-    color:var(--ink);
-    transition:color 0.4s ease;
-    line-height:1.25;
-  }
-  .service-card:hover h3{ color:var(--blush-light); }
-
-  .service-card p{
-    margin-top:14px;
-    font-size:0.95rem;
-    color:var(--ink-soft);
-    line-height:1.7;
-    transition:color 0.4s ease;
-    flex-grow:1;
-  }
-  .service-card:hover p{ color:rgba(247,237,233,0.78); }
-
-  /* ============ PARALLAX BANNER ============ */
-  .banner{ position:relative; height:64vh; min-height:420px; overflow:hidden; background:var(--ink); }
-  .banner-bg{
-    position:absolute;
-    top:-12%; left:0; right:0; height:124%;
-    background:
-      radial-gradient(ellipse 70% 60% at 70% 30%, rgba(242,168,182,0.38), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(224,120,143,0.28), transparent 60%),
-      linear-gradient(170deg,#4A3640 0%, #3A2E32 60%, #251C20 100%);
-    will-change:transform;
-  }
-  .banner-bg::after{
-    content:'';
-    position:absolute; inset:0;
-    background-image: repeating-linear-gradient(95deg, transparent 0 70px, rgba(255,255,255,0.03) 70px 71px);
-  }
-  .banner-content{
-    position:relative; z-index:2; height:100%;
-    display:flex; flex-direction:column; justify-content:center;
-    color:var(--blush-light); text-align:center;
-  }
-  .banner-quote{
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:clamp(1.4rem,3.2vw,2.4rem);
-    line-height:1.45;
-    max-width:780px;
-    margin:0 auto;
-  }
-  .banner-quote .mark{ color:var(--sage-light); font-style:normal; }
-  .banner-attr{ margin-top:28px; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(247,237,233,0.6); }
-
-  /* ============ PROCESSO (Como funciona) ============ */
-  .process{ background:var(--blush); }
-  .process-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:36px;
-    margin-top:70px;
-  }
-  .process-step{ position:relative; padding-top:34px; }
-  .process-step .pnum{
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:1.1rem;
-    color:var(--rose-deep);
-    position:absolute;
-    top:0; left:0;
-  }
-  .process-step::before{
-    content:'';
-    position:absolute;
-    top:8px; left:46px; right:0; height:1px;
-    background:var(--line);
-  }
-  .process-step h3{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:1.25rem;
-    margin-bottom:12px;
-    color:var(--ink);
-  }
-  .process-step p{ font-size:0.93rem; color:var(--ink-soft); line-height:1.7; }
-
-  /* ============ GALERIA / MOMENTOS ============ */
-  .gallery{ background:var(--paper); }
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(6, 1fr);
-    grid-auto-rows:250px;
-    gap:14px;
-    margin-top:70px;
-  }
-  .gl-item{
-    position:relative;
-    overflow:hidden;
-    border-radius:2px;
-    background:linear-gradient(150deg,#6B525A, #3A2E32);
-    grid-column:span 2;
-    grid-row:span 1;
-  }
-  .gl-item.tall{ grid-row:span 2; }
-  .gl-item img{
-    position:absolute; inset:0;
-    width:100%; height:100%; object-fit:cover;
-    transition:transform 0.8s cubic-bezier(.16,.8,.24,1);
-  }
-  .gl-item:hover img{ transform:scale(1.06); }
-  .gl-item::after{
-    content:'';
-    position:absolute; inset:0;
-    background:linear-gradient(180deg, transparent 55%, rgba(58,46,50,0.5) 100%);
-    z-index:1;
-  }
-  .gl-item .gl-tag{
-    position:absolute; left:14px; bottom:14px; z-index:2;
-    font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--blush-light);
-    opacity:0;
-    transform:translateY(8px);
-    transition:opacity 0.4s ease, transform 0.4s ease;
-  }
-  .gl-item:hover .gl-tag{ opacity:1; transform:translateY(0); }
-
-  /* ============ DEPOIMENTOS ============ */
-  .reviews{ background:var(--blush); }
-  .reviews-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:0;
-    margin-top:70px;
-    border-top:1px solid var(--line);
-  }
-  .review{
-    padding:42px 36px;
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    display:flex;
-    flex-direction:column;
-    background:var(--blush-light);
-  }
-  .review:nth-child(3n){ border-right:none; }
-  .review .stars{ color:var(--rose); font-size:0.95rem; letter-spacing:3px; margin-bottom:18px; }
-  .review p.quote{ font-size:1rem; line-height:1.75; color:var(--ink); flex-grow:1; }
-  .review .who{ margin-top:24px; display:flex; align-items:center; gap:12px; }
-  .review .who .avatar{
-    width:38px; height:38px; border-radius:50%;
-    background:var(--blush);
-    border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--serif); font-style:italic; color:var(--rose-deep); font-size:0.95rem;
-  }
-  .review .who .name{ font-size:0.85rem; font-weight:600; color:var(--ink); }
-  .review .who .meta{ font-size:0.74rem; color:var(--ink-soft); }
-
-  /* ============ CUIDADOS / FAQ ============ */
-  .care{ background:var(--paper); }
-  .care-grid{ display:grid; grid-template-columns:1fr 1fr; gap:7vw; align-items:flex-start; }
-  .care-item{ border-bottom:1px solid var(--line); padding:26px 0; }
-  .care-item .q{ display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:20px; }
-  .care-item .q h4{ font-family:var(--serif); font-weight:500; font-size:1.14rem; color:var(--ink); }
-  .care-item .q .icon{ width:18px; height:18px; position:relative; flex-shrink:0; }
-  .care-item .q .icon::before, .care-item .q .icon::after{
-    content:''; position:absolute; background:var(--rose-deep); transition:transform 0.35s ease;
-  }
-  .care-item .q .icon::before{ left:0; top:50%; width:100%; height:1px; transform:translateY(-50%); }
-  .care-item .q .icon::after{ top:0; left:50%; width:1px; height:100%; transform:translateX(-50%); }
-  .care-item.open .q .icon::after{ transform:translateX(-50%) scaleY(0); }
-  .care-item .a{ max-height:0; overflow:hidden; transition:max-height 0.45s cubic-bezier(.16,.8,.24,1), opacity 0.4s ease; opacity:0; }
-  .care-item.open .a{ opacity:1; }
-  .care-item .a p{ color:var(--ink-soft); font-size:0.96rem; line-height:1.75; padding-top:16px; max-width:480px; }
-
-  /* ============ CONTATO ============ */
-  .contact{ background:var(--ink); color:var(--blush-light); position:relative; overflow:hidden; }
-  .contact::before{
-    content:'';
-    position:absolute; top:0; right:0; width:55%; height:100%;
-    background:
-      radial-gradient(ellipse 70% 70% at 80% 30%, rgba(242,168,182,0.3), transparent 65%),
-      radial-gradient(ellipse 50% 50% at 60% 90%, rgba(224,120,143,0.2), transparent 60%);
-    pointer-events:none;
-  }
-  .contact-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:8vw; position:relative; z-index:2; }
-  .contact-title{ font-family:var(--serif); font-size:clamp(2rem,4.4vw,3.5rem); line-height:1.08; font-weight:400; margin-bottom:30px; }
-  .contact-title em{ font-style:italic; color:var(--rose); }
-  .contact-lede{ color:rgba(247,237,233,0.74); font-size:1.05rem; line-height:1.75; max-width:480px; margin-bottom:42px; }
-  .contact-actions{ display:flex; gap:16px; flex-wrap:wrap; }
-
-  .info-card{ border:1px solid rgba(247,237,233,0.16); padding:42px; border-radius:2px; background:rgba(247,237,233,0.03); }
-  .info-row{ display:flex; gap:18px; padding:20px 0; border-bottom:1px solid rgba(247,237,233,0.12); }
-  .info-row:last-child{ border-bottom:none; padding-bottom:0; }
-  .info-row:first-child{ padding-top:0; }
-  .info-row .ic{ width:20px; flex-shrink:0; margin-top:2px; color:var(--sage-light); }
-  .info-row .label{ font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(247,237,233,0.5); margin-bottom:6px; }
-  .info-row .value{ font-size:1rem; color:var(--blush-light); line-height:1.5; }
-  .info-row .value a:hover{ color:var(--rose); }
-
-  .social-row{ display:flex; gap:14px; margin-top:30px; }
-  .social-pill{
-    border:1px solid rgba(247,237,233,0.25);
-    padding:11px 22px; border-radius:2px;
-    font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase;
-    transition:border-color 0.3s ease, color 0.3s ease;
-  }
-  .social-pill:hover{ border-color:var(--rose); color:var(--rose); }
-
-  /* ============ FOOTER ============ */
-  footer{ background:var(--ink); border-top:1px solid rgba(247,237,233,0.1); padding:34px 0; }
-  .footer-row{
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:14px; color:rgba(247,237,233,0.45); font-size:0.78rem;
-  }
-  .footer-row .fmark{ font-family:var(--serif); font-style:italic; color:rgba(247,237,233,0.65); }
-  .footer-bottom{
-    border-top: 1px solid rgba(255,255,255,.08);
-    margin-top: 50px;
-    padding: 22px 0;
-}
-
-.footer-bottom-content{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-.footer-credit{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
-
-.footer-credit span{
-    font-size: 13px;
-    color: #8b95a7;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.footer-credit img{
-    height: 26px;
-    width: auto;
-    display: block;
-    transition: transform .3s, opacity .3s;
-}
-
-.footer-credit:hover img{
-    transform: scale(1.05);
-    opacity: .9;
-}
-
-.footer-copy{
-    color: #F7F5F0;
-    font-size: 14px;
-    margin: 0;
-}
-
-.footer-brand img{
-    height: 26px;
-    display: block;
-    transition: .3s ease;
-}
-
-.footer-brand:hover img{
-    opacity: .8;
-    transform: scale(1.05);
-}
-.footer {
-    padding: 20px 0;
-    border-top: 1px solid rgba(255,255,255,.08);
-}
-
-.footer-content {
-    width: 100%;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-logo {
-    height: 22px; /* ajuste conforme desejar */
-    width: auto;
-}
-
-  /* ============ WHATSAPP FLOAT ============ */
-  .wa-float{
-    position:fixed; bottom:26px; right:26px; z-index:600;
-    width:58px; height:58px; border-radius:50%;
-    background:var(--rose);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 14px 30px -8px rgba(46,40,37,0.45);
-    transition:transform 0.3s cubic-bezier(.16,.8,.24,1), background 0.3s ease;
-  }
-  .wa-float:hover{ transform:translateY(-4px) scale(1.04); background:var(--rose-deep); }
-  .wa-float svg{ width:26px; height:26px; fill:var(--blush-light); }
-
-  /* ============ MOBILE NAV ============ */
-  .mobile-nav{
-    position:fixed; inset:0; background:var(--ink); z-index:550;
-    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
-    padding:0 8vw;
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
-    transform:translateY(-100%);
-    transition:transform 0.5s cubic-bezier(.16,.8,.24,1);
-  }
-  .mobile-nav.open{ transform:translateY(0); }
-  .mobile-nav a{
-    font-family:var(--serif); font-size:clamp(1.5rem, 7vw, 2.1rem); color:var(--blush-light);
-    padding:14px 0; border-bottom:1px solid rgba(247,237,233,0.1); width:100%;
-  }
-  .mobile-nav .mn-cta{ margin-top:30px; font-family:var(--sans); font-size:0.85rem; border:none; border-bottom:none; }
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width:980px){
-    :root{ --section-pad:96px; }
-    .nav-links{ display:none; }
-    .nav-toggle{ display:block; }
-    .about-grid{ grid-template-columns:1fr; gap:50px; }
-    .about-media-inner{ aspect-ratio:16/11; }
-    .stats-grid{ grid-template-columns:repeat(2,1fr); }
-    .stat:nth-child(2){ border-right:none; }
-    .stat{ border-bottom:1px solid rgba(247,237,233,0.12); }
-    .services-grid{ grid-template-columns:1fr; }
-    .services-head{ margin-bottom:50px; }
-    .process-grid{ grid-template-columns:repeat(2,1fr); gap:46px 30px; }
-    .gallery-grid{ grid-template-columns:repeat(4,1fr); grid-auto-rows:150px; }
-    .gl-item{ grid-column:span 2; }
-    .gl-item.tall{ grid-row:span 2; }
-    .reviews-grid{ grid-template-columns:1fr; }
-    .review{ border-right:none !important; }
-    .care-grid{ grid-template-columns:1fr; gap:50px; }
-    .contact-grid{ grid-template-columns:1fr; gap:60px; }
-    .hero-title{ max-width:100%; }
-  }
-
-  /* ---- Smartphones (general) ---- */
-  @media (max-width:600px){
-    html{ -webkit-text-size-adjust:100%; }
-    :root{ --section-pad:72px; }
-    .wrap{ padding-left:7vw; padding-right:7vw; }
-
-    .topbar{ padding:20px 6vw; }
-    .topbar.scrolled{ padding:14px 6vw; }
-    .brandmark{ font-size:1.1rem; }
-
-    .hero{ min-height:600px; }
-    .hero-content{ padding:0 7vw 12vh; }
-    .hero-eyebrow{ font-size:0.7rem; gap:10px; margin-bottom:20px; }
-    .hero-eyebrow .rule{ width:26px; }
-    .hero-title{ font-size:clamp(2.1rem, 8.6vw, 2.9rem); line-height:1.08; }
-    .hero-sub{ font-size:0.96rem; line-height:1.65; max-width:100%; }
-    .hero-actions{ margin-top:32px; gap:14px; }
-    .hero-actions .btn{ flex:1 1 auto; justify-content:center; padding:15px 20px; font-size:0.76rem; }
-    .scroll-cue{ display:none; }
-
-    .pulse-divider{ height:80px; }
-
-    .about-media-tag{ bottom:14px; left:14px; padding:11px 16px; }
-    .about-media-tag .num{ font-size:1.5rem; }
-    .about-copy p:first-of-type{ font-size:1.2rem; }
-    .about-sign{ flex-wrap:wrap; gap:10px 18px; }
-
-    h2.section-title{ font-size:clamp(1.7rem, 8vw, 2.4rem); }
-    .lede{ max-width:100%; }
-
-    .stats-grid{ grid-template-columns:repeat(2,1fr); }
-    .stat{ padding:40px 0; }
-
-    .services-head{ gap:20px; }
-    .service-card{ padding:34px 26px; min-height:auto; }
-
-    .banner{ height:auto; min-height:340px; padding:70px 0; }
-    .banner-content{ height:auto; }
-
-    .process-grid{ grid-template-columns:1fr; gap:34px; margin-top:44px; }
-    .process-step{ padding-top:30px; }
-
-    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:130px; gap:8px; margin-top:40px; }
-    .gl-item{ grid-column:span 1; }
-    .gl-item.tall{ grid-row:span 2; }
-    .gl-item .gl-tag{ opacity:1; transform:translateY(0); font-size:0.6rem; }
-
-    .reviews-grid{ margin-top:44px; }
-    .review{ padding:32px 26px; }
-
-    .care-grid{ gap:36px; }
-    .care-item{ padding:20px 0; }
-    .care-item .q h4{ font-size:1.02rem; }
-    .care-item .a p{ max-width:100%; }
-
-    .contact-grid{ gap:44px; }
-    .contact-title{ font-size:clamp(1.8rem, 8.6vw, 2.6rem); }
-    .contact-actions{ flex-direction:column; align-items:stretch; }
-    .contact-actions .btn{ justify-content:center; text-align:center; }
-    .info-card{ padding:26px; }
-    .social-row{ flex-wrap:wrap; }
-    .social-pill{ flex:1 1 auto; text-align:center; }
-
-    .footer-row{ flex-direction:column; text-align:center; }
-    .footer-bottom-content{
-      flex-direction:column; text-align:center; gap:14px;
-      padding:0 7vw;
-    }
-    .footer-content{ flex-direction:column; text-align:center; gap:12px; padding:0 7vw; }
-
-    .wa-float{
-      width:52px; height:52px;
-      bottom:calc(18px + env(safe-area-inset-bottom));
-      right:calc(18px + env(safe-area-inset-right));
-    }
-    .wa-float svg{ width:23px; height:23px; }
-  }
-
-  /* ---- Small / older phones (iPhone SE, compact Android) ---- */
-  @media (max-width:400px){
-    :root{ --section-pad:60px; }
-    .wrap{ padding-left:6vw; padding-right:6vw; }
-
-    .hero{ min-height:560px; }
-    .hero-title{ font-size:clamp(1.9rem, 9.6vw, 2.4rem); }
-    .hero-actions{ flex-direction:column; align-items:stretch; }
-    .hero-actions .btn{ width:100%; }
-
-    .about-sign{ flex-direction:column; align-items:flex-start; gap:8px; }
-    .about-sign .role{ border-left:none; padding-left:0; }
-
-    .service-card{ padding:28px 20px; }
-    .process-step::before{ left:38px; }
-
-    .gallery-grid{ grid-template-columns:1fr; grid-auto-rows:180px; }
-    .gl-item.tall{ grid-row:span 1; }
-
-    .review{ padding:26px 20px; }
-
-    .info-row{ flex-wrap:wrap; }
-    .footer-credit img, .footer-brand img{ height:20px; }
-    .footer-credit span{ font-size:11px; }
-
-    .mobile-nav{ padding:0 7vw; }
-    .mobile-nav .mn-cta{ margin-top:22px; }
-  }
-
-  /* ---- Short-height mobiles (small screens / landscape phones) ---- */
-  @media (max-height:520px){
-    .hero{ min-height:460px; height:auto; padding-bottom:40px; }
-    .mobile-nav{ justify-content:flex-start; padding-top:90px; padding-bottom:24px; }
-    .mobile-nav a{ padding:10px 0; }
-  }
-
-  /* ---- Touch devices: avoid hover-only affordances trapping state ---- */
-  @media (hover:none){
-    .gl-item .gl-tag{ opacity:1; transform:translateY(0); }
-  }
-
-  /* =====================================================================
-     FLUIDEZ + ARTE (out/2026)
-     ===================================================================== */
-  :root{ --ease:cubic-bezier(.16,.84,.32,1); --ease-soft:cubic-bezier(.33,1,.68,1); }
-  html{ scroll-padding-top:84px; }
-
-  /* revelação mais macia: sobe, desfoca e entra em cascata (--d vem do JS) */
-  .reveal{
-    filter:blur(6px);
-    transition:opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease);
-    transition-delay:var(--d, 0s);
-  }
-  .reveal.is-visible{ filter:blur(0); }
-  .reveal-delay-1.is-visible, .reveal-delay-2.is-visible, .reveal-delay-3.is-visible{ transition-delay:var(--d, 0s); }
-
-  /* topo: some ao descer, volta ao subir */
-  .topbar{ transition:padding .4s var(--ease), background .4s ease, box-shadow .4s ease, transform .5s var(--ease); }
-  .topbar.scrolled{ background:rgba(253,241,243,0.9); }
-  .topbar.hide{ transform:translateY(-110%); }
-
-  /* título do topo: cada linha sobe de dentro de uma máscara */
-  .hero-title{ opacity:1; animation:none; }
-  .hero-title .ln{ display:block; overflow:hidden; padding-bottom:.08em; margin-bottom:-.08em; }
-  .hero-title .ln > span{ display:inline-block; transform:translateY(105%); animation:lineUp 1.2s var(--ease) forwards; }
-  .hero-title .ln:nth-child(2) > span{ animation-delay:.18s; }
-  @keyframes lineUp{ to{ transform:translateY(0); } }
-  .hero-eyebrow{ animation-delay:.1s; }
-
-  /* botões: resposta ao toque sem ficar seca */
-  .btn{ transition:transform .35s var(--ease), background .3s ease, color .3s ease, box-shadow .35s var(--ease), border-color .3s ease; }
-  .btn:active{ transform:translateY(0) scale(.97); transition-duration:.12s; }
-  .btn-primary:hover{ box-shadow:0 14px 30px -10px rgba(224,120,143,.6); }
-  .wa-float{ animation:waIn .8s 1.4s var(--ease) both; }
-  .wa-float:active{ transform:scale(.94); }
-  @keyframes waIn{ from{ opacity:0; transform:translateY(20px) scale(.8); } }
-
-
-  /* ---------- patinhas ao fundo ---------- */
-  .has-paws{ overflow:hidden; }
-  .has-paws > .wrap, .has-paws > .banner-content{ position:relative; z-index:1; }
-  .paw-trail{ position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
-  .paw-layer{ position:absolute; left:0; right:0; top:-60px; bottom:-60px; will-change:transform; }
-  .paw-trail .paw{
-    position:absolute; width:var(--s); height:var(--s);
-    color:var(--rose-deep);
-    opacity:0;
-    transform:translate(-50%,-50%) rotate(var(--r)) scale(.7);
-    transition:opacity 1s ease var(--dl), transform 1.2s var(--ease) var(--dl);
-  }
-  .paw-trail.is-visible .paw{ opacity:var(--o); transform:translate(-50%,-50%) rotate(var(--r)) scale(1); }
-  .paw-trail.light .paw{ color:#fff; }
-  .hero .paw-trail{ z-index:3; }
-  .banner .paw-trail{ z-index:1; }
-
-  /* patinha que aparece no canto do card de serviço */
-  .service-card .paw-mark{
-    position:absolute; right:30px; top:34px; width:30px; height:30px;
-    color:var(--sage-light); opacity:0;
-    transform:rotate(-30deg) scale(.5);
-    transition:opacity .45s ease, transform .6s var(--ease);
-  }
-  .service-card:hover .paw-mark{ opacity:.9; transform:rotate(12deg) scale(1); }
-  .service-card h3{ transition:color .4s ease, transform .5s var(--ease); }
-  .service-card:hover h3{ transform:translateX(4px); }
-
-  /* selo girando na foto do "Sobre" */
-  .about-media{ overflow:visible; }
-  .about-media-inner img{ transform:scale(1.1); will-change:transform; }
-  .about-stamp{
-    position:absolute; top:-46px; right:-46px; z-index:4;
-    width:132px; height:132px; border-radius:50%;
-    background:var(--blush-light);
-    box-shadow:0 16px 36px -18px rgba(58,46,50,.45);
-    display:grid; place-items:center;
-  }
-  .about-stamp svg.ring{ position:absolute; inset:8px; width:calc(100% - 16px); height:calc(100% - 16px); animation:spin 26s linear infinite; }
-  .about-stamp svg.ring text{ font-family:var(--sans); font-size:10.6px; font-weight:600; letter-spacing:.2em; fill:var(--rose-deep); text-transform:uppercase; }
-  .about-stamp .paw{ width:36px; height:36px; color:var(--rose); }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-
-  /* galeria: a foto abre de baixo pra cima */
-  /* (o recorte fica na foto, não no bloco: clip-path no bloco engana o IntersectionObserver) */
-  .gl-item.reveal{ filter:none; transform:none; opacity:1; background:transparent; }
-  .gl-item.reveal::after{ opacity:0; transition:opacity .8s ease; transition-delay:calc(var(--d,0s) + .6s); }
-  .gl-item.reveal.is-visible::after{ opacity:1; }
-  .gl-item.reveal img{ clip-path:inset(100% 0 0 0); transform:scale(1.18); transition:clip-path 1.1s var(--ease), transform 1.6s var(--ease); transition-delay:var(--d,0s); }
-  .gl-item.reveal.is-visible img{ clip-path:inset(0 0 0 0); transform:scale(1); }
-  .gl-item.reveal.is-visible:hover img{ transform:scale(1.06); transition-delay:0s; transition-duration:.8s; }
-
-  /* menu do celular: links entram em cascata */
-  .mobile-nav a{ opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .6s var(--ease); }
-  .mobile-nav.open a{ opacity:1; transform:none; }
-  .mobile-nav.open a:nth-child(1){ transition-delay:.12s; }
-  .mobile-nav.open a:nth-child(2){ transition-delay:.18s; }
-  .mobile-nav.open a:nth-child(3){ transition-delay:.24s; }
-  .mobile-nav.open a:nth-child(4){ transition-delay:.30s; }
-  .mobile-nav.open a:nth-child(5){ transition-delay:.36s; }
-
-  /* FAQ e depoimentos */
-  .care-item .q h4{ transition:color .3s ease; }
-  .care-item .q:hover h4{ color:var(--rose-deep); }
-  .review{ transition:background .4s ease; }
-  .review:hover{ background:var(--paper); }
-  .review .stars{ letter-spacing:4px; }
-
-  /* ---------- trilha da Amora (sprite) ---------- */
-  .pet-track{ position:relative; height:74px; margin-top:64px; }
-  .pet-track::after{
-    content:''; position:absolute; left:0; right:0; bottom:6px; height:1px;
-    background:repeating-linear-gradient(90deg, var(--rose) 0 6px, transparent 6px 12px); opacity:.7;
-  }
-  .pet-track[hidden]{ display:none; }
-  .pet__dog{ position:absolute; left:0; bottom:6px; background:none; border:0; padding:0; cursor:pointer; line-height:0; will-change:transform; }
-  .pet__dog canvas{ image-rendering:pixelated; image-rendering:crisp-edges; }
-  .pet__dog:focus-visible{ outline:2px solid var(--rose-deep); outline-offset:4px; }
-  .pet__print{ position:absolute; bottom:4px; width:9px; height:9px; color:var(--rose-deep); opacity:.35; animation:printFade 2.4s ease forwards; pointer-events:none; }
-  @keyframes printFade{ to{ opacity:0; } }
-  .pet__fx{ position:absolute; bottom:64px; pointer-events:none; image-rendering:pixelated; animation:fxUp 1.2s var(--ease) forwards; }
-  @keyframes fxUp{ from{ opacity:0; transform:translateY(6px) scale(.6); } 20%{ opacity:1; } to{ opacity:0; transform:translateY(-30px) scale(1); } }
-  .pet__tag{
-    position:absolute; bottom:72px; transform:translateX(-50%);
-    font-family:var(--serif); font-style:italic; font-size:.95rem; color:var(--rose-deep);
-    background:var(--blush-light); border:1px solid var(--line); padding:4px 12px; white-space:nowrap;
-    animation:fxUp 2.2s var(--ease) forwards; pointer-events:none;
-  }
-
-  /* rodapé */
-  .footer-copy{ color:rgba(247,237,233,.7); font-size:13px; line-height:1.6; }
-  .footer-sig{ color:rgba(247,237,233,.55); font-size:13px; letter-spacing:.04em; }
-  .footer-sig a{ color:var(--blush-light); border-bottom:1px solid rgba(247,237,233,.3); transition:color .3s ease, border-color .3s ease; }
-  .footer-sig a:hover{ color:var(--rose); border-color:var(--rose); }
-
-  @media (max-width:980px){
-    .about-stamp{ top:-34px; right:-10px; width:108px; height:108px; }
-    .about-stamp svg.ring text{ font-size:10px; }
-  }
-  @media (max-width:600px){
-    .about-stamp{ top:-28px; right:-4px; width:96px; height:96px; }
-    .about-stamp .paw{ width:28px; height:28px; }
-    .pet-track{ margin-top:44px; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ filter:none; }
-    .hero-title .ln > span{ transform:none; }
-    .gl-item.reveal img{ clip-path:none; }
-    .gl-item.reveal::after{ opacity:1; }
-    .gl-item.reveal img, .about-media-inner img{ transform:none; }
-    .about-stamp svg.ring{ animation:none; }
-  }
-
-
-  /* =====================================================================
-     AJUSTES DE CELULAR (out/2026): fotos verticais em molduras verticais
-     ===================================================================== */
-  .about-media-inner img, .gl-item img{ object-position:50% 28%; }
-  /* Amora: sem quadrado azul de toque/foco (o foco por teclado continua visível) */
-  .pet__dog{ -webkit-tap-highlight-color:transparent; outline:none; -webkit-user-select:none; user-select:none; }
-  .pet__dog:focus:not(:focus-visible){ outline:none; }
-  .pet__dog canvas{ display:block; pointer-events:none; }
-
-  @media (max-width:980px){
-    /* foto do Sobre: retrato, não paisagem */
-    .about-media{ max-width:440px; width:100%; margin:0 auto; }
-    .about-media-inner{ aspect-ratio:4/5; }
-    /* galeria: 3 colunas de retratos; a última foto fecha a grade na largura toda */
-    .gallery-grid{ grid-template-columns:repeat(3,1fr); grid-auto-rows:auto; }
-    .gl-item, .gl-item.tall{ grid-column:auto; grid-row:auto; aspect-ratio:3/4; }
-    .gl-item:last-child{ grid-column:1 / -1; aspect-ratio:4/3; }
-    .gl-item:last-child img{ object-position:50% 40%; }
-  }
-  @media (max-width:600px){
-    .gallery-grid{ grid-template-columns:repeat(2,1fr); gap:8px; }
-  }
-  @media (max-width:400px){
-    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:auto; }
-    .gl-item, .gl-item.tall{ grid-row:auto; }
-  }
-</style>
+<link rel="preload" as="font" type="font/woff2" href="assets/fontes/antonio-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fontes/jost-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-760.webp 760w, assets/img/hero.webp 1254w" imagesizes="(max-width: 900px) 100vw, 54vw">
+<link rel="stylesheet" href="assets/css/fontes.css?v=2">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="paw" viewBox="0 0 64 64"><g fill="currentColor"><path d="M32 33.5c-6.3 0-11.2 4.3-14.2 9.4-2.4 4-6.3 6.1-6.3 10.8 0 4.7 3.8 7.8 8.4 7.8 4.1 0 7.3-2.1 12.1-2.1s8 2.1 12.1 2.1c4.6 0 8.4-3.1 8.4-7.8 0-4.7-3.9-6.8-6.3-10.8-3-5.1-7.9-9.4-14.2-9.4z"/><path d="M11.6 22.4c3.4-1 7.3 1.9 8.6 6.4 1.3 4.6-.4 9.1-3.8 10.1-3.4 1-7.3-1.9-8.6-6.4-1.3-4.6.4-9.1 3.8-10.1z"/><path d="M23.4 6.6c3.7-.6 7.2 3.1 7.9 8.2.7 5.1-1.7 9.7-5.4 10.3-3.7.6-7.2-3.1-7.9-8.2-.7-5.1 1.7-9.7 5.4-10.3z"/><path d="M40.6 6.6c3.7.6 6.1 5.2 5.4 10.3-.7 5.1-4.2 8.8-7.9 8.2-3.7-.6-6.1-5.2-5.4-10.3.7-5.1 4.2-8.8 7.9-8.2z"/><path d="M52.4 22.4c3.4 1 5.1 5.5 3.8 10.1-1.3 4.5-5.2 7.4-8.6 6.4-3.4-1-5.1-5.5-3.8-10.1 1.3-4.5 5.2-7.4 8.6-6.4z"/></g></symbol>
-  <symbol id="paw-line" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M32 33.5c-6.3 0-11.2 4.3-14.2 9.4-2.4 4-6.3 6.1-6.3 10.8 0 4.7 3.8 7.8 8.4 7.8 4.1 0 7.3-2.1 12.1-2.1s8 2.1 12.1 2.1c4.6 0 8.4-3.1 8.4-7.8 0-4.7-3.9-6.8-6.3-10.8-3-5.1-7.9-9.4-14.2-9.4z"/><path d="M11.6 22.4c3.4-1 7.3 1.9 8.6 6.4 1.3 4.6-.4 9.1-3.8 10.1-3.4 1-7.3-1.9-8.6-6.4-1.3-4.6.4-9.1 3.8-10.1z"/><path d="M23.4 6.6c3.7-.6 7.2 3.1 7.9 8.2.7 5.1-1.7 9.7-5.4 10.3-3.7.6-7.2-3.1-7.9-8.2-.7-5.1 1.7-9.7 5.4-10.3z"/><path d="M40.6 6.6c3.7.6 6.1 5.2 5.4 10.3-.7 5.1-4.2 8.8-7.9 8.2-3.7-.6-6.1-5.2-5.4-10.3.7-5.1 4.2-8.8 7.9-8.2z"/><path d="M52.4 22.4c3.4 1 5.1 5.5 3.8 10.1-1.3 4.5-5.2 7.4-8.6 6.4-3.4-1-5.1-5.5-3.8-10.1 1.3-4.5 5.2-7.4 8.6-6.4z"/></g></symbol>
+  <symbol id="paw-line" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M32 33.5c-6.3 0-11.2 4.3-14.2 9.4-2.4 4-6.3 6.1-6.3 10.8 0 4.7 3.8 7.8 8.4 7.8 4.1 0 7.3-2.1 12.1-2.1s8 2.1 12.1 2.1c4.6 0 8.4-3.1 8.4-7.8 0-4.7-3.9-6.8-6.3-10.8-3-5.1-7.9-9.4-14.2-9.4z"/><path d="M11.6 22.4c3.4-1 7.3 1.9 8.6 6.4 1.3 4.6-.4 9.1-3.8 10.1-3.4 1-7.3-1.9-8.6-6.4-1.3-4.6.4-9.1 3.8-10.1z"/><path d="M23.4 6.6c3.7-.6 7.2 3.1 7.9 8.2.7 5.1-1.7 9.7-5.4 10.3-3.7.6-7.2-3.1-7.900-8.2-.7-5.1 1.7-9.7 5.4-10.3z"/><path d="M40.6 6.6c3.7.6 6.1 5.2 5.4 10.3-.7 5.1-4.2 8.8-7.9 8.2-3.7-.6-6.1-5.2-5.4-10.3.7-5.1 4.2-8.8 7.9-8.2z"/><path d="M52.4 22.4c3.4 1 5.1 5.5 3.8 10.1-1.3 4.5-5.2 7.4-8.6 6.4-3.4-1-5.1-5.5-3.8-10.1 1.3-4.5 5.2-7.4 8.6-6.4z"/></g></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-wpp" viewBox="0 0 24 24"><path d="M4.5 19.5l1.1-3.9A8.2 8.2 0 1 1 8.6 18.6z"/><path d="M9.2 8.4c.2-.4.5-.5.8-.5h.5l1 2.2-.8 1a6 6 0 0 0 2.9 2.8l1-.8 2.2 1v.5c0 .4-.2.7-.5.9-.9.5-2.2.4-3.6-.4a9 9 0 0 1-3.4-3.4c-.8-1.4-.8-2.6-.1-3.3z" stroke-width="1.2"/></symbol>
+  <symbol id="i-med" viewBox="0 0 24 24"><path d="M12 3v18M8.5 6.5c0-1.5 1.6-2.5 3.5-2.5s3.5 1 3.5 2.5-1.6 2.3-3.5 2.6-3.5 1.1-3.5 2.6 1.6 2.3 3.5 2.6 3.5 1.1 3.5 2.5-1.6 2.2-3.5 2.2"/><path d="M5 5.5c1.3-.2 2.5.2 3.5 1M19 5.5c-1.3-.2-2.5.2-3.5 1"/></symbol>
+  <symbol id="i-capelo" viewBox="0 0 24 24"><path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.6c1.4 1.5 3.3 2.2 5.5 2.2s4.1-.7 5.5-2.2V11M21.5 9v5.5"/></symbol>
+  <symbol id="i-estet" viewBox="0 0 24 24"><path d="M6 3.5H5a1 1 0 0 0-1 1V9a5 5 0 0 0 10 0V4.5a1 1 0 0 0-1-1h-1"/><path d="M9 14v1.5a5 5 0 0 0 10 0V13"/><circle cx="19" cy="11" r="2"/></symbol>
+  <symbol id="i-vacina" viewBox="0 0 24 24"><path d="M17 3l4 4M19 5l-3 3M15 6l3 3-9.5 9.5-3-3zM12 9l1.5 1.5M10 11l1.5 1.5M5.5 15.5l3 3M7 17l-4 4"/></symbol>
+  <symbol id="i-tubo" viewBox="0 0 24 24"><path d="M9 3h6M10 3v13a2 2 0 0 0 4 0V3M10 10h4"/><path d="M6 21h12"/></symbol>
+  <symbol id="i-gota" viewBox="0 0 24 24"><path d="M12 3.5s-6 6.6-6 10.8a6 6 0 0 0 12 0C18 10.1 12 3.5 12 3.5z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+  <symbol id="i-curativo" viewBox="0 0 24 24"><rect x="2.8" y="8.2" width="18.4" height="7.6" rx="1.2" transform="rotate(-45 12 12)"/><path d="M10.2 10.2l3.6 3.6M11.4 9.6h.01M14.4 12.6h.01M9.6 11.4h.01M12.6 14.4h.01"/></symbol>
+  <symbol id="i-pulso" viewBox="0 0 24 24"><path d="M3 12h4l2-5 3.5 10 2.5-7 1.5 2H21"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.8-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.2-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="1"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></symbol>
 </svg>
 
-<!-- ============ TOPBAR ============ -->
-<header class="topbar" id="topbar">
-  <a href="#topo" class="brandmark">
-      <img src="assets/img/logo.webp" alt="Dra. Juliana Cubas" class="brandmark-img" width="90" height="90" fetchpriority="high">
+<header class="topo" id="topo">
+  <a class="marca" href="#inicio" aria-label="Dra. Juliana Cubas, início">
+    <img src="assets/img/logo-rosa.webp" width="230" height="240" alt="">
+    <span>Dra. Juliana Cubas<small>Veterinária a domicílio</small></span>
   </a>
-  <nav class="nav-links">
+  <nav aria-label="Seções">
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
     <a href="#como-funciona">Como funciona</a>
     <a href="#avaliacoes">Avaliações</a>
-    <a href="#contato" class="nav-cta">Agendar</a>
+    <a href="#duvidas">Dúvidas</a>
   </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a class="btn btn-cheio btn-topo" href="#agendar">Agendar visita</a>
+  <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="gaveta"><i></i><i></i></button>
 </header>
 
-<div class="mobile-nav" id="mobileNav">
-  <a href="#sobre">Sobre</a>
-  <a href="#servicos">Serviços</a>
-  <a href="#como-funciona">Como funciona</a>
-  <a href="#avaliacoes">Avaliações</a>
-  <a href="#contato" class="mn-cta">Agendar horário →</a>
+<div class="gaveta" id="gaveta" hidden>
+  <nav aria-label="Menu">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#duvidas">Dúvidas</a>
+  </nav>
+  <div>
+    <a class="btn btn-cheio btn-grande" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Agendar no WhatsApp</a>
+    <p class="gaveta-info">(15) 99689-3103 · seg a sáb, com hora marcada</p>
+  </div>
 </div>
 
-<!-- ============ HERO ============ -->
-<section class="has-paws hero" id="topo">
-  <div class="paw-trail light" aria-hidden="true"></div>
-  <div class="hero-media" id="heroMedia">
-    <!--
-      ⚠️ ESPAÇO PARA O VÍDEO REAL:
-      <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
-        <source src="assets/hero.mp4" type="video/mp4">
-      </video>
-      Sugestão de cena: a Dra. Juliana atendendo um pet em ambiente doméstico, luz natural, câmera lenta.
-    -->
-    <div class="hero-fallback"></div>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grain"></div>
+<main id="conteudo">
 
-  <div class="hero-content">
-    <div class="hero-eyebrow"><span class="rule"></span> Tietê e região — Interior de São Paulo</div>
-    <h1 class="hero-title"><span class="ln"><span>Cuidado veterinário</span></span><span class="ln"><span><em>no conforto da sua casa.</em></span></span></h1>
-    <p class="hero-sub">Consultas, exames, vacinas e acompanhamento para o seu pet, sem o estresse do deslocamento até a clínica — com a mesma seriedade clínica de um consultório.</p>
-    <div class="hero-actions">
-      <a href="#contato" class="btn btn-primary">Agendar pelo WhatsApp</a>
-      <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
+<!-- ============ TOPO ============ -->
+<section class="hero" id="inicio">
+  <figure class="hero-foto">
+    <img src="assets/img/hero.webp" srcset="assets/img/hero-760.webp 760w, assets/img/hero.webp 1254w" sizes="(max-width: 900px) 100vw, 54vw" width="1254" height="1254" fetchpriority="high" alt="Dra. Juliana Cubas, de jaleco, segurando no colo um gatinho siamês claro que encosta o focinho no rosto dela">
+    <span class="veu" aria-hidden="true"></span>
+  </figure>
+  <div class="hero-texto">
+    <p class="hero-assina">Juliana Cubas</p>
+    <h1><span>Veterinária</span><span>na sua casa</span></h1>
+    <p class="hero-sub">Consulta, vacina, coleta de exames e acompanhamento para cães e gatos, sem caixa de transporte e sem sala de espera. Seu pet é examinado onde se sente seguro.</p>
+    <ul class="credenciais">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg><span>Médica Veterinária<small>CRMV-SP 76.595</small></span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-capelo"/></svg><span>Pós-graduanda em Anestesiologia Veterinária e Intensivismo / Clínica Médica<small>EBRAMEV</small></span></li>
+    </ul>
+    <div class="hero-botoes">
+      <a class="btn btn-cheio btn-grande" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Agendar visita no WhatsApp</a>
+      <a class="link-seta" href="#servicos">Ver serviços <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
     </div>
-  </div>
-
-  <div class="scroll-cue">
-    <span>Role para conhecer</span>
-    <div class="line"></div>
+    <ul class="hero-info">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Tietê e região</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Seg a sáb</li>
+      <li><svg class="ic" aria-hidden="true"><use href="#paw-line"/></svg>Cães e gatos</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ SIGNATURE DIVIDER ============ -->
-<div class="pulse-divider" id="pulseDivider1">
-  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path d="M0,60 L180,60 L210,20 L240,100 L270,60 L420,60 C460,60 460,60 500,60 L680,60 L710,20 L740,100 L770,60 L1200,60"/>
-  </svg>
+<div class="faixa" aria-hidden="true">
+  <div class="faixa-trilho">
+    <ul><li>Consulta clínica</li><li>Vacinação</li><li>Coleta de exames</li><li>Medicações</li><li>Curativos</li><li>Acompanhamento</li><li>Cães e gatos</li></ul>
+    <ul><li>Consulta clínica</li><li>Vacinação</li><li>Coleta de exames</li><li>Medicações</li><li>Curativos</li><li>Acompanhamento</li><li>Cães e gatos</li></ul>
+  </div>
 </div>
 
 <!-- ============ SOBRE ============ -->
-<section class="has-paws about section-pad" id="sobre">
-  <div class="paw-trail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-media reveal">
-        <div class="about-media-inner" id="aboutImgWrap">
-          <img src="assets/img/sobre.webp" loading="lazy" decoding="async" width="900" height="1200" alt="Dra. Juliana Cubas, médica veterinária, atendendo um golden retriever">
-        </div>
-        <div class="about-stamp" aria-hidden="true">
-          <svg class="ring" viewBox="0 0 116 116"><defs><path id="stampPath" d="M58,58 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#stampPath" textLength="287" lengthAdjust="spacing">Veterinária a domicílio · Tietê — SP ·</textPath></text></svg>
-          <svg class="paw"><use href="#paw"/></svg>
-        </div>
-        <div class="about-media-tag">
-          <div class="lbl">Juliana</div>
-          <div class="lbl">Cubas</div>
-        </div>
-      </div>
-
-      <div class="about-copy reveal reveal-delay-1">
-        <div class="eyebrow"><span class="rule"></span> Quem cuida do seu pet</div>
-        <h2 class="section-title" style="margin-bottom:26px;">Não é sobre <em>pressa de clínica.</em><br>É sobre atenção de verdade.</h2>
-        <p>Escolhi o atendimento domiciliar porque vejo o que ele muda: o animal mais calmo, o tutor mais à vontade para falar tudo o que percebeu em casa, e eu com tempo real para examinar com cuidado — sem fila de espera, sem outro paciente latindo na sala ao lado.</p>
-        <p>Atendo em Tietê e região com consulta clínica completa, coleta de exames, vacinação, aplicação de medicações e acompanhamento de tratamento. Se algo exigir estrutura hospitalar, eu digo com a mesma transparência — não prometo o que o atendimento domiciliar não pode resolver.</p>
-        <div class="about-sign">
-          <span class="signature">Dra. Juliana Cubas</span>
-          <span class="role">Médica Veterinária - CRMV/SP:76.595</span>
-        </div>
+<section class="secao sobre" id="sobre">
+  <div class="caixa sobre-grade">
+    <figure class="sobre-foto revela">
+      <div class="moldura"><img src="assets/img/sobre.webp" loading="lazy" decoding="async" width="900" height="1200" alt="Dra. Juliana Cubas sorrindo, agachada ao lado de um golden retriever deitado"></div>
+      <figcaption>Tietê · SP</figcaption>
+    </figure>
+    <div class="sobre-txt revela" style="--d:.12s">
+      <p class="chapeu">Quem cuida do seu pet</p>
+      <h2 class="titulo">Atenção de verdade, com tempo para examinar</h2>
+      <p class="lead">Escolhi o atendimento domiciliar porque vejo o que ele muda: o animal fica mais calmo, o tutor conta com calma tudo o que percebeu em casa, e eu examino com tempo, sem fila e sem outro paciente latindo na sala ao lado.</p>
+      <p class="texto">Se algum caso pedir estrutura hospitalar, eu falo com a mesma transparência e oriento o encaminhamento certo. Não prometo o que o atendimento em casa não resolve.</p>
+      <ul class="formacao">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-med"/></svg><div><strong>Médica Veterinária</strong><span>CRMV-SP 76.595</span></div></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-capelo"/></svg><div><strong>Pós-graduanda em Anestesiologia Veterinária e Intensivismo / Clínica Médica</strong><span>EBRAMEV, Escola Brasileira de Medicina Veterinária</span></div></li>
+      </ul>
+      <div class="sobre-assina">
+        <span class="assina">Juliana Cubas</span>
+        <small>Cães e gatos, do filhote ao idoso</small>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- ============ SERVIÇOS ============ -->
-<section class="has-paws services section-pad" id="servicos">
+<section class="secao servicos" id="servicos">
   <div class="paw-trail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="services-head reveal">
+  <div class="caixa">
+    <div class="secao-cab revela">
       <div>
-        <div class="eyebrow"><span class="rule"></span> O que eu faço</div>
-        <h2 class="section-title">Cuidado completo,<br>sem sair de <em>casa.</em></h2>
+        <p class="chapeu">Serviços</p>
+        <h2 class="titulo">O que eu levo até a sua casa</h2>
       </div>
-      <p class="lede">Cada visita começa com uma escuta atenta do tutor — sintomas observados em casa, rotina, histórico — antes mesmo do exame clínico no pet.</p>
+      <p class="texto">Toda visita começa ouvindo você: sintomas, rotina e histórico do pet. Depois vem o exame clínico, com o material todo na maleta.</p>
     </div>
-
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <span class="service-index">01</span>
-        <h3>Consulta Clínica</h3>
-        <p>Avaliação completa do estado de saúde do seu pet, com exame físico detalhado e orientações específicas para o caso — no ambiente onde ele se sente seguro.</p>
-      </div>
-
-      <div class="service-card reveal reveal-delay-1">
-        <span class="service-index">02</span>
-        <h3>Coleta para Exames</h3>
-        <p>Coleta de sangue e outras amostras para exames laboratoriais, sem o estresse do transporte até um laboratório ou clínica.</p>
-      </div>
-
-      <div class="service-card reveal reveal-delay-2">
-        <span class="service-index">03</span>
-        <h3>Vacinação</h3>
-        <p>Calendário vacinal atualizado e aplicado com cuidado, mantendo o seu pet protegido nas datas certas — eu acompanho o histórico e te aviso quando for hora de renovar.</p>
-      </div>
-
-      <div class="service-card reveal">
-        <span class="service-index">04</span>
-        <h3>Aplicação de Medicações</h3>
-        <p>Administração de medicamentos injetáveis e tratamentos contínuos, com orientação clara de dosagem e frequência para a continuidade em casa.</p>
-      </div>
-
-      <div class="service-card reveal reveal-delay-1">
-        <span class="service-index">05</span>
-        <h3>Orientações Preventivas</h3>
-        <p>Alimentação, parasitas, comportamento e cuidados por fase de vida — prevenção de verdade começa em uma boa conversa, não só na consulta de urgência.</p>
-      </div>
-
-      <div class="service-card reveal reveal-delay-2">
-        <span class="service-index">06</span>
-        <h3>Acompanhamento</h3>
-        <p>Retornos e monitoramento de tratamentos em andamento, para garantir que o pet está respondendo bem — com ajustes quando necessário.</p>
-      </div>
+    <div class="serv-grade">
+      <article class="serv revela"><svg class="ic" aria-hidden="true"><use href="#i-estet"/></svg><h3>Consulta clínica</h3><p>Exame físico completo e orientação para o caso, com prevenção de parasitas, alimentação e cuidados de cada fase da vida.</p></article>
+      <article class="serv revela"><svg class="ic" aria-hidden="true"><use href="#i-vacina"/></svg><h3>Vacinação</h3><p>Calendário em dia e aplicado com cuidado. Eu acompanho o histórico e aviso quando chega a hora do reforço.</p></article>
+      <article class="serv revela"><svg class="ic" aria-hidden="true"><use href="#i-tubo"/></svg><h3>Coleta para exames</h3><p>Sangue e outras amostras coletados em casa e enviados ao laboratório, sem levar o pet a lugar nenhum.</p></article>
+      <article class="serv revela"><svg class="ic" aria-hidden="true"><use href="#i-gota"/></svg><h3>Aplicação de medicações</h3><p>Injetáveis e tratamentos contínuos, com orientação clara de dose e horário para seguir em casa.</p></article>
+      <article class="serv revela"><svg class="ic" aria-hidden="true"><use href="#i-curativo"/></svg><h3>Curativos</h3><p>Limpeza e troca de curativos com delicadeza, no tempo do animal, sem o estresse do deslocamento.</p></article>
+      <article class="serv revela"><svg class="ic" aria-hidden="true"><use href="#i-pulso"/></svg><h3>Acompanhamento</h3><p>Retornos e monitoramento de tratamentos em andamento, com ajustes quando o pet precisar.</p></article>
+    </div>
+    <div class="serv-extra revela">
+      <p><strong>Serviço extra: pet sitter.</strong> Vai viajar ou passar o dia fora? Pergunte pelo WhatsApp sobre visitas para cuidar do seu pet.</p>
+      <a class="btn" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener">Perguntar no WhatsApp <svg class="ic seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ============ BANNER PARALLAX / FRASE ============ -->
-<section class="has-paws banner">
-  <div class="paw-trail light" aria-hidden="true"></div>
-  <div class="banner-bg" id="bannerBg"></div>
-  <div class="banner-content wrap">
-    <p class="banner-quote reveal"><span class="mark">“</span>Eu não troco a clínica por conveniência. Eu levo a mesma seriedade clínica até a porta da sua casa.<span class="mark">”</span></p>
-    <p class="banner-attr reveal reveal-delay-1">Dra. Juliana Cubas</p>
+<!-- ============ MANIFESTO ============ -->
+<section class="secao manifesto">
+  <div class="caixa">
+    <p class="manifesto-txt" data-palavras>Sem caixa de transporte, sem sala de espera, sem cheiro de clínica. Só o seu pet, calmo, no lugar que ele conhece.</p>
+    <p class="assina revela">Juliana Cubas</p>
   </div>
 </section>
 
 <!-- ============ COMO FUNCIONA ============ -->
-<section class="has-paws process section-pad" id="como-funciona">
-  <div class="paw-trail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="eyebrow reveal"><span class="rule"></span> Antes da primeira visita</div>
-    <h2 class="section-title reveal reveal-delay-1">Como funciona<br>o atendimento <em>domiciliar.</em></h2>
-
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <span class="pnum">01</span>
-        <h3>Você chama no WhatsApp</h3>
-        <p>Conta o que está acontecendo com o seu pet e a região onde mora. Eu te respondo com horários disponíveis e uma ideia inicial do que será avaliado.</p>
+<section class="secao passos-sec" id="como-funciona">
+  <div class="caixa">
+    <div class="secao-cab revela">
+      <div>
+        <p class="chapeu">Como funciona</p>
+        <h2 class="titulo">Da mensagem à visita</h2>
       </div>
-      <div class="process-step reveal reveal-delay-1">
-        <span class="pnum">02</span>
-        <h3>Agendamos o melhor horário</h3>
-        <p>Combinamos dia e hora que funcionem para a sua rotina — sem encaixe forçado nem sala de espera.</p>
-      </div>
-      <div class="process-step reveal reveal-delay-2">
-        <span class="pnum">03</span>
-        <h3>Atendimento na sua casa</h3>
-        <p>Levo todo o material necessário para exame clínico, coleta ou aplicação. Você acompanha cada etapa de perto.</p>
-      </div>
-      <div class="process-step reveal reveal-delay-3">
-        <span class="pnum">04</span>
-        <h3>Retorno com orientações</h3>
-        <p>Te explico o que foi encontrado, o que fazer a partir daí, e fico disponível para dúvidas depois da consulta.</p>
-      </div>
+      <p class="texto">Sem encaixe forçado: a gente combina o horário que cabe na sua rotina.</p>
+    </div>
+    <ol class="passos" role="list">
+      <li class="passo revela"><span class="n">1</span><h3>Você chama no WhatsApp</h3><p>Conta o que está acontecendo, a espécie, a idade do pet e o bairro onde mora.</p></li>
+      <li class="passo revela"><span class="n">2</span><h3>Combinamos o horário</h3><p>Eu respondo com os horários livres e o que vou precisar avaliar.</p></li>
+      <li class="passo revela"><span class="n">3</span><h3>Atendimento em casa</h3><p>Levo o material para exame, coleta ou aplicação. Você acompanha tudo de perto.</p></li>
+      <li class="passo revela"><span class="n">4</span><h3>Orientação e retorno</h3><p>Explico o que encontrei, o que fazer a partir dali, e sigo disponível para dúvidas.</p></li>
+    </ol>
+    <div class="passos-cta revela">
+      <a class="btn btn-cheio btn-grande" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Começar pelo passo 1</a>
+      <p>Atendimento com hora marcada, de segunda a sábado.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ SIGNATURE DIVIDER 2 ============ -->
-<div class="pulse-divider" id="pulseDivider2">
-  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path d="M0,60 L160,60 L190,95 L220,25 L250,60 L1000,60 L1030,95 L1060,25 L1090,60 L1200,60"/>
-  </svg>
-</div>
-
-<!-- ============ GALERIA / MOMENTOS ============ -->
-<section class="has-paws gallery section-pad" id="momentos">
-  <div class="paw-trail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="eyebrow reveal"><span class="rule"></span> Bastidores</div>
-    <h2 class="section-title reveal reveal-delay-1">Cada consulta é<br>um <em>encontro.</em></h2>
-
-    <div class="gallery-grid">
-      <div class="gl-item tall reveal">
-        <img src="assets/img/g1.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana Cubas com paciente no hospital veterinário">
-        <span class="gl-tag">No consultório</span>
+<!-- ============ BASTIDORES ============ -->
+<section class="secao bastidores" id="bastidores">
+  <div class="caixa">
+    <div class="secao-cab revela">
+      <div>
+        <p class="chapeu">Bastidores</p>
+        <h2 class="titulo">Cada consulta é um encontro</h2>
       </div>
-      <div class="gl-item reveal reveal-delay-1">
-        <img src="assets/img/g2.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com filhotes de poodle">
-        <span class="gl-tag">Filhotes</span>
-      </div>
-      <div class="gl-item reveal reveal-delay-2">
-        <img src="assets/img/g3.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com filhote de Akita">
-        <span class="gl-tag">Primeira consulta</span>
-      </div>
-      <div class="gl-item tall reveal reveal-delay-1">
-        <img src="assets/img/g4.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana em evento pet com Bernese Mountain Dog">
-        <span class="gl-tag">Eventos do setor</span>
-      </div>
-      <div class="gl-item reveal reveal-delay-2">
-        <img src="assets/img/g5.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com Shih Tzu">
-        <span class="gl-tag">Carinho de paciente</span>
-      </div>
-      <div class="gl-item reveal reveal-delay-1">
-        <img src="assets/img/g6.webp" loading="lazy" decoding="async" width="720" height="960" alt="Atendimento Bernese">
-        <span class="gl-tag">Momentos fofos</span>
-      </div>
-      <div class="gl-item reveal reveal-delay-2">
-        <img src="assets/img/g7.webp" loading="lazy" decoding="async" width="720" height="720" alt="Felinos">
-        <span class="gl-tag">Atenção também para os felinos</span>
-      </div>
+      <p class="texto">Filhotes na primeira vacina, idosos em tratamento, gatos desconfiados. Um pouco do dia a dia.</p>
     </div>
-    <p style="margin-top:28px; font-size:0.85rem; color:var(--ink-soft);">
-      Acompanhe mais momentos e bastidores no Instagram.
-    </p>
+    <div class="galeria">
+      <figure class="revela"><img src="assets/img/g2.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com filhotes de poodle no colo"><figcaption>Filhotes</figcaption></figure>
+      <figure class="revela"><img src="assets/img/g3.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com um filhote de akita"><figcaption>Primeira consulta</figcaption></figure>
+      <figure class="revela"><img src="assets/img/g7.webp" loading="lazy" decoding="async" width="720" height="720" alt="Dra. Juliana com um gato"><figcaption>Felinos também</figcaption></figure>
+      <figure class="revela"><img src="assets/img/g5.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com um shih tzu"><figcaption>Carinho de paciente</figcaption></figure>
+      <figure class="revela"><img src="assets/img/g6.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana com um bernese"><figcaption>Gigantes gentis</figcaption></figure>
+      <figure class="revela"><img src="assets/img/g4.webp" loading="lazy" decoding="async" width="720" height="960" alt="Dra. Juliana em evento pet com um bernese"><figcaption>Eventos do setor</figcaption></figure>
+    </div>
+    <div class="galeria-pe revela">
+      <a class="link-seta" href="https://www.instagram.com/julianacubasvet/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-insta"/></svg>Mais no Instagram @julianacubasvet</a>
+    </div>
   </div>
 </section>
 
 <!-- ============ AVALIAÇÕES ============ -->
-<section class="has-paws reviews section-pad" id="avaliacoes">
-  <div class="paw-trail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="eyebrow reveal"><span class="rule"></span> Quem já chamou em casa</div>
-    <h2 class="section-title reveal reveal-delay-1">Avaliação direta,<br>sem <em>filtro.</em></h2>
-
-    <div class="reviews-grid">
-      <div class="review reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">A Luna está ótima!!! as orelhas estão ótimas também ❤️ ela já está deixando eu beijar... ( antes quando eu tentava ela chorava de dor ) obrigada ❤️</p>
-        <div class="who">
-          <div class="avatar">F</div>
-          <div><div class="name">Fabiola</div><div class="meta">Consulta clínica</div></div>
-        </div>
+<section class="secao avaliacoes" id="avaliacoes">
+  <div class="caixa">
+    <div class="secao-cab revela">
+      <div>
+        <p class="chapeu">Avaliações</p>
+        <h2 class="titulo">O que os tutores contam</h2>
       </div>
-
-      <div class="review reveal reveal-delay-1">
-        <div class="stars">★★★★★</div>
-        <p class="quote">Juliana, muito obrigada por toda atenção, por tudo mesmo... Minha família gostou muito de você ❤️</p>
-        <div class="who">
-          <div class="avatar">K</div>
-          <div><div class="name">Keila</div><div class="meta">Acompanhamento de tratamento</div></div>
-        </div>
-      </div>
-
-      <div class="review reveal reveal-delay-2">
-        <div class="stars">★★★★★</div>
-        <p class="quote">Marquei a vacinação dos dois gatos pelo WhatsApp, ela veio no horário combinado e foi rápido, sem estresse pra eles nem pra mim. Recomendo de olhos fechados.</p>
-        <div class="who">
-          <div class="avatar">C</div>
-          <div><div class="name">Camila A.</div><div class="meta">Vacinação</div></div>
-        </div>
-      </div>
+      <p class="texto">Mensagens de quem já recebeu a visita, do jeito que chegaram.</p>
+    </div>
+    <div class="relatos">
+      <figure class="relato revela"><span class="aspas" aria-hidden="true">“</span><blockquote>A Luna está ótima!!! As orelhas estão ótimas também ❤️ ela já está deixando eu beijar... (antes quando eu tentava ela chorava de dor) obrigada ❤️</blockquote><footer><strong>Fabiola</strong>Consulta clínica</footer></figure>
+      <figure class="relato revela"><span class="aspas" aria-hidden="true">“</span><blockquote>Juliana, muito obrigada por toda atenção, por tudo mesmo... Minha família gostou muito de você ❤️</blockquote><footer><strong>Keila</strong>Acompanhamento de tratamento</footer></figure>
+      <figure class="relato revela"><span class="aspas" aria-hidden="true">“</span><blockquote>Marquei a vacinação dos dois gatos pelo WhatsApp, ela veio no horário combinado e foi rápido, sem estresse pra eles nem pra mim. Recomendo de olhos fechados.</blockquote><footer><strong>Camila A.</strong>Vacinação</footer></figure>
     </div>
   </div>
 </section>
 
-<!-- ============ CUIDADOS / FAQ ============ -->
-<section class="has-paws care section-pad" id="cuidados">
+<!-- ============ DÚVIDAS ============ -->
+<section class="secao duvidas" id="duvidas">
   <div class="paw-trail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="care-grid">
-      <div class="reveal">
-        <div class="eyebrow"><span class="rule"></span> Antes de agendar</div>
-        <h2 class="section-title">Dúvidas que todo<br>tutor <em>já me fez.</em></h2>
-        <p class="lede" style="margin-top:24px;">Reuni aqui o que mais perguntam antes da primeira visita. Se ainda ficar dúvida, me manda mensagem — respondo rápido.</p>
+  <div class="caixa">
+    <div class="duvidas-grade">
+      <div class="revela">
+        <p class="chapeu">Dúvidas</p>
+        <h2 class="titulo">Antes de agendar</h2>
+        <p class="texto">O que os tutores mais perguntam antes da primeira visita. Ficou alguma dúvida? Me manda mensagem.</p>
+        <a class="link-seta" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener">Perguntar no WhatsApp <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
       </div>
-
-      <div class="care-list reveal reveal-delay-1">
-        <div class="care-item open">
-          <div class="q"><h4>O atendimento domiciliar substitui totalmente uma clínica?</h4><span class="icon"></span></div>
-          <div class="a"><p>Para a maioria das consultas, exames de rotina, vacinas e acompanhamentos, sim. Em casos que exigem estrutura hospitalar (cirurgias, internação, exames de imagem específicos), eu mesma oriento o encaminhamento certo — com transparência total.</p></div>
-        </div>
-        <div class="care-item">
-          <div class="q"><h4>Quais animais você atende?</h4><span class="icon"></span></div>
-          <div class="a"><p>Cães e gatos, em todas as fases de vida — de filhotes a idosos. Me conta a espécie e a idade do seu pet na conversa pelo WhatsApp para eu já me preparar para a visita.</p></div>
-        </div>
-        <div class="care-item">
-          <div class="q"><h4>Preciso preparar algo antes da visita?</h4><span class="icon"></span></div>
-          <div class="a"><p>Só um espaço tranquilo e iluminado em casa. Se for coleta de exame, recomendo jejum conforme orientação que te passo antes — combinamos os detalhes na confirmação do horário.</p></div>
-        </div>
-        <div class="care-item">
-          <div class="q"><h4>Como faço para marcar uma visita?</h4><span class="icon"></span></div>
-          <div class="a"><p>Pelo WhatsApp, no botão abaixo. Me conta o que está acontecendo com o seu pet e sua região, e eu te respondo com os horários disponíveis.</p></div>
-        </div>
+      <div class="faq revela" style="--d:.12s">
+        <div class="faq-item aberto"><button type="button" aria-expanded="true"><h3>O atendimento em casa substitui a clínica?</h3><span class="mais" aria-hidden="true"></span></button><div class="faq-resp"><div><p>Na maioria das consultas, exames de rotina, vacinas e acompanhamentos, sim. Quando o caso pede estrutura hospitalar (cirurgia, internação, exames de imagem), eu oriento o encaminhamento certo, com transparência.</p></div></div></div>
+        <div class="faq-item"><button type="button" aria-expanded="false"><h3>Quais animais você atende?</h3><span class="mais" aria-hidden="true"></span></button><div class="faq-resp"><div><p>Cães e gatos, de filhotes a idosos. Me conta a espécie e a idade na conversa pelo WhatsApp para eu já chegar preparada.</p></div></div></div>
+        <div class="faq-item"><button type="button" aria-expanded="false"><h3>A pós em anestesiologia e intensivismo faz diferença em casa?</h3><span class="mais" aria-hidden="true"></span></button><div class="faq-resp"><div><p>Faz na avaliação. São as áreas que estudam dor, sedação segura e o paciente em estado delicado, o que ajuda a perceber cedo quando um quadro precisa de mais estrutura e a encaminhar na hora certa.</p></div></div></div>
+        <div class="faq-item"><button type="button" aria-expanded="false"><h3>Preciso preparar algo antes da visita?</h3><span class="mais" aria-hidden="true"></span></button><div class="faq-resp"><div><p>Só um espaço tranquilo e iluminado. Se for coleta de exame, eu passo antes a orientação de jejum. Os detalhes a gente combina na confirmação do horário.</p></div></div></div>
+        <div class="faq-item"><button type="button" aria-expanded="false"><h3>Quais cidades você atende?</h3><span class="mais" aria-hidden="true"></span></button><div class="faq-resp"><div><p>Tietê e região. Me diz o seu bairro ou cidade no WhatsApp que eu confirmo o atendimento e o horário.</p></div></div></div>
       </div>
     </div>
     <div class="pet-track" data-pet="assets/img/amora-walk.png" hidden></div>
   </div>
 </section>
 
-<!-- ============ CONTATO ============ -->
-<section class="has-paws contact section-pad" id="contato">
-  <div class="paw-trail light" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="eyebrow" style="color:var(--sage-light);"><span class="rule" style="background:var(--sage-light);"></span> Vamos agendar a visita</div>
-        <h2 class="contact-title">Seu pet merece<br><em>cuidado de perto.</em></h2>
-        <p class="contact-lede">Atendimento por hora marcada, em Tietê e região. Me chama no WhatsApp contando o que está acontecendo — eu te respondo com os horários disponíveis.</p>
-        <div class="contact-actions">
-          <a href="https://api.whatsapp.com/message/OHXGBG67TJULG1?autoload=1&app_absent=0" class="btn btn-primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
-          <a href="https://www.instagram.com/julianacubasvet/" class="btn btn-ghost" target="_blank" rel="noopener">Ver Instagram</a>
-        </div>
-      </div>
-
-      <div class="reveal reveal-delay-1">
-        <div class="info-card">
-          <div class="info-row">
-            <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0112 2a7 7 0 017 7.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.4" r="2.4"/></svg></span>
-            <div><div class="label">Área de atendimento</div><div class="value">Tietê e região — SP<br>Endereço exato combinado no agendamento</div></div>
-          </div>
-          <div class="info-row">
-            <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5h4l2 5-2.5 1.5a11 11 0 005 5L13 14l5 2v4a2 2 0 01-2 2A16 16 0 013 7a2 2 0 012-2z"/></svg></span>
-            <div><div class="label">WhatsApp</div><div class="value"><a href="https://api.whatsapp.com/message/OHXGBG67TJULG1?autoload=1&app_absent=0">(15) 99689-3103</a></div></div>
-          </div>
-          <div class="info-row">
-            <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 9h18"/></svg></span>
-            <div><div class="label">Atendimento</div><div class="value">Segunda a sábado, com hora marcada</div></div>
-          </div>
-          <div class="social-row">
-            <a href="https://www.instagram.com/julianacubasvet/" target="_blank" rel="noopener" class="social-pill">Instagram</a>
-            <a href="https://api.whatsapp.com/message/OHXGBG67TJULG1?autoload=1&app_absent=0" target="_blank" rel="noopener" class="social-pill">WhatsApp</a>
-          </div>
-        </div>
-      </div>
+<!-- ============ AGENDAR ============ -->
+<section class="secao agendar" id="agendar">
+  <div class="paw-trail" aria-hidden="true"></div>
+  <div class="caixa revela">
+    <p class="chapeu"><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Agende a visita</p>
+    <h2 class="titulo">Seu pet atendido sem sair de casa</h2>
+    <p class="texto">Me chama no WhatsApp contando o que está acontecendo e onde você mora. Eu respondo com os horários disponíveis.</p>
+    <div class="agendar-botoes">
+      <a class="btn btn-cheio btn-grande" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Agendar no WhatsApp</a>
+      <a class="btn btn-grande" href="https://www.instagram.com/julianacubasvet/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-insta"/></svg>Instagram</a>
     </div>
+    <a class="fone" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener">(15) 99689-3103</a>
+    <ul class="agendar-info">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><strong>Onde</strong><span>Tietê e região, SP. O endereço é combinado no agendamento.</span></div></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><div><strong>Quando</strong><span>Segunda a sábado, com hora marcada.</span></div></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#paw-line"/></svg><div><strong>Quem</strong><span>Cães e gatos, do filhote ao idoso.</span></div></li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="footer-bottom-content">
-    <p class="footer-copy">© 2026 Dra. Juliana Cubas · Médica Veterinária · CRMV-SP 76.595</p>
-    <p class="footer-sig">Site por <a href="https://lrgz.com.br" target="_blank" rel="noopener">L R G Z</a></p>
+</main>
+
+<footer class="rodape">
+  <div class="caixa">
+    <div class="rodape-linha">
+      <a class="rodape-marca" href="#inicio"><img src="assets/img/logo-rosa.webp" width="230" height="240" alt="" loading="lazy"><span>Dra. Juliana Cubas</span></a>
+      <nav aria-label="Rodapé">
+        <a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a>
+        <a href="https://www.instagram.com/julianacubasvet/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <div class="rodape-base">
+      <p>© 2026 Dra. Juliana Cubas · Médica Veterinária · CRMV-SP 76.595</p>
+      <p>Site por <a href="https://lrgz.com.br" target="_blank" rel="noopener">L R G Z</a></p>
+    </div>
   </div>
 </footer>
 
-<!-- ============ WHATSAPP FLOAT BUTTON ============ -->
-<a href="https://api.whatsapp.com/message/OHXGBG67TJULG1?autoload=1&app_absent=0" class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16 0a16 16 0 00-13.86 24.06L.4 31.6a.8.8 0 00.98.98l7.6-1.74A16 16 0 1016 0zm8.4 22.55c-.35 1-2.05 1.95-2.83 2.06-.72.1-1.63.14-2.63-.17a23.5 23.5 0 01-2.4-.89c-4.23-1.83-6.98-6.08-7.2-6.37-.21-.28-1.72-2.29-1.72-4.36s1.1-3.1 1.48-3.52c.39-.43.85-.54 1.13-.54.28 0 .57 0 .82.01.26.01.62-.1.97.74.36.86 1.22 2.98 1.33 3.2.11.21.18.46.04.74-.14.28-.21.46-.42.71-.21.25-.45.56-.64.75-.21.21-.43.44-.18.86.25.43 1.11 1.83 2.38 2.96 1.64 1.46 3.02 1.91 3.46 2.13.43.21.68.18.94-.07.25-.25 1.07-1.25 1.36-1.68.28-.43.57-.36.96-.21.39.14 2.5 1.18 2.93 1.39.43.21.71.32.82.5.11.18.11 1.04-.24 2.04z"/></svg>
-</a>
+<div class="barra-cta" id="barraCta">
+  <a class="btn btn-cheio" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Agendar no WhatsApp</a>
+</div>
 
-<script>
-(function(){
-  "use strict";
-
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // topo: fundo ao rolar; some ao descer, volta ao subir
-  var topbar = document.getElementById('topbar');
-  var lastY = window.scrollY;
-  function onScroll(){
-    var y = window.scrollY;
-    topbar.classList.toggle('scrolled', y > 40);
-    var menuOpen = document.getElementById('mobileNav').classList.contains('open');
-    if(!menuOpen && y > window.innerHeight * 0.9 && y > lastY + 4){ topbar.classList.add('hide'); }
-    else if(y < lastY - 4 || y < 80){ topbar.classList.remove('hide'); }
-    lastY = y;
-  }
-  document.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-
-  // patinhas espalhadas: grade com sorteio fixo por seção, duas camadas de profundidade
-  var SVGNS = 'http://www.w3.org/2000/svg';
-  function pawEl(line){
-    var svg = document.createElementNS(SVGNS, 'svg');
-    svg.setAttribute('class', 'paw');
-    var use = document.createElementNS(SVGNS, 'use');
-    use.setAttribute('href', line ? '#paw-line' : '#paw');
-    svg.appendChild(use);
-    return svg;
-  }
-  function seeded(a){
-    return function(){
-      a |= 0; a = a + 0x6D2B79F5 | 0;
-      var t = Math.imul(a ^ a >>> 15, 1 | a);
-      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
-  }
-  // fundo: pequenas e claras, andam devagar; frente: maiores, andam mais
-  var PAW_LAYERS = [
-    { depth:16, keep:.55, smin:13, smax:22, omin:.07, omax:.11, line:.15 },
-    { depth:44, keep:.40, smin:24, smax:44, omin:.10, omax:.16, line:.35 }
-  ];
-  var trailEls = document.querySelectorAll('.paw-trail');
-  var pawsWidth = 0;
-  function buildPaws(){
-    pawsWidth = window.innerWidth;
-    var mobile = pawsWidth < 600;
-    trailEls.forEach(function(trail, ti){
-      trail.textContent = '';
-      var sec = trail.parentNode;
-      var w = sec.offsetWidth, h = sec.offsetHeight + 120;
-      var dim = trail.classList.contains('light') ? .55 : 1;
-      PAW_LAYERS.forEach(function(L, li){
-        var rnd = seeded(ti * 7919 + li * 104729 + (mobile ? 3 : 0));
-        var cell = (li ? 170 : 120) * (mobile ? .72 : 1);
-        var layer = document.createElement('div');
-        layer.className = 'paw-layer';
-        layer.dataset.depth = L.depth;
-        var cols = Math.ceil(w / cell), rows = Math.ceil(h / cell);
-        for(var r = 0; r < rows; r++){
-          for(var c = 0; c < cols; c++){
-            if(rnd() > L.keep) continue;
-            var line = rnd() < L.line;
-            var p = pawEl(line);
-            var sz = L.smin + Math.pow(rnd(), 1.6) * (L.smax - L.smin);
-            if(mobile) sz *= .82;
-            p.style.left = ((c + .12 + rnd() * .76) * cell / w * 100).toFixed(2) + '%';
-            p.style.top = ((r + .12 + rnd() * .76) * cell / h * 100).toFixed(2) + '%';
-            p.style.setProperty('--s', sz.toFixed(1) + 'px');
-            p.style.setProperty('--r', Math.round(rnd() * 360 - 180) + 'deg');
-            p.style.setProperty('--o', ((L.omin + rnd() * (L.omax - L.omin)) * dim * (line ? 1.25 : 1)).toFixed(3));
-            p.style.setProperty('--dl', (rnd() * 1.1).toFixed(2) + 's');
-            layer.appendChild(p);
-          }
-        }
-        trail.appendChild(layer);
-      });
-    });
-  }
-  buildPaws();
-  var pawsTimer;
-  window.addEventListener('resize', function(){
-    if(Math.abs(window.innerWidth - pawsWidth) < 40) return;   // ignora a barra do celular
-    clearTimeout(pawsTimer);
-    pawsTimer = setTimeout(function(){ buildPaws(); requestParallax(); }, 250);
-  });
-
-  // patinha escondida no canto de cada card de serviço
-  document.querySelectorAll('.service-card').forEach(function(card){
-    var p = pawEl();
-    p.setAttribute('class', 'paw-mark');
-    p.setAttribute('aria-hidden', 'true');
-    card.appendChild(p);
-  });
-
-  // cascata: itens irmãos que entram juntos ganham atraso crescente
-  document.querySelectorAll('.services-grid, .process-grid, .gallery-grid, .reviews-grid').forEach(function(grid){
-    var cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length || 1;
-    Array.prototype.forEach.call(grid.children, function(el, i){
-      el.style.setProperty('--d', ((i % Math.max(cols, 1)) * 0.11) + 's');
-    });
-  });
-
-  var navToggle = document.getElementById('navToggle');
-  var mobileNav = document.getElementById('mobileNav');
-  navToggle.addEventListener('click', function(){
-    navToggle.classList.toggle('active');
-    mobileNav.classList.toggle('open');
-  });
-  mobileNav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      navToggle.classList.remove('active');
-      mobileNav.classList.remove('open');
-    });
-  });
-
-  var revealEls = document.querySelectorAll('.reveal, .pulse-divider');
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold:0.18, rootMargin:'0px 0px -40px 0px' });
-    revealEls.forEach(function(el){ io.observe(el); });
-    // seções altas: as patinhas acendem assim que a seção encosta na tela
-    var pawIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){ entry.target.classList.add('is-visible'); pawIO.unobserve(entry.target); }
-      });
-    }, { threshold:0, rootMargin:'0px 0px -12% 0px' });
-    trailEls.forEach(function(el){ pawIO.observe(el); });
-  } else {
-    trailEls.forEach(function(el){ el.classList.add('is-visible'); });
-    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
-  }
-
-  var heroMedia = document.querySelector('.hero-media .hero-fallback, .hero-media video');
-  var bannerBg = document.getElementById('bannerBg');
-  var hero = document.querySelector('.hero');
-  var bannerSection = document.querySelector('.banner');
-  var aboutImg = document.querySelector('#aboutImgWrap img');
-  var trails = document.querySelectorAll('.paw-trail');
-
-  function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
-
-  // um quadro por rolagem (rAF), em vez de recalcular a cada evento
-  var ticking = false;
-  function requestParallax(){
-    if(ticking) return;
-    ticking = true;
-    requestAnimationFrame(function(){ ticking = false; onParallax(); });
-  }
-
-  function onParallax(){
-    if(reduceMotion) return;
-    var vh = window.innerHeight;
-
-    // patinhas: cada camada anda numa velocidade (profundidade)
-    trails.forEach(function(t){
-      var r = t.parentNode.getBoundingClientRect();
-      if(r.bottom > 0 && r.top < vh){
-        var c = clamp((r.top + r.height / 2 - vh / 2) / vh, -1.3, 1.3);
-        Array.prototype.forEach.call(t.children, function(layer){
-          layer.style.transform = 'translate3d(0,' + (c * layer.dataset.depth).toFixed(1) + 'px,0)';
-        });
-      }
-    });
-
-    if(aboutImg){
-      var ar = aboutImg.parentNode.getBoundingClientRect();
-      if(ar.bottom > 0 && ar.top < vh){
-        var ac = clamp((ar.top + ar.height / 2 - vh / 2) / vh, -1, 1);
-        aboutImg.style.transform = 'translate3d(0,' + (ac * 26).toFixed(1) + 'px,0) scale(1.1)';
-      }
-    }
-
-    if(hero){
-      var hRect = hero.getBoundingClientRect();
-      if(hRect.bottom > 0 && hRect.top < vh){
-        var p = clamp(1 - (hRect.bottom / (vh + hRect.height)), 0, 1);
-        var translate = p * 60;
-        if(heroMedia){ heroMedia.style.transform = 'translate(-50%, calc(-50% + ' + translate + 'px)) scale(1.08)'; }
-      }
-    }
-
-    if(bannerSection && bannerBg){
-      var bRect = bannerSection.getBoundingClientRect();
-      if(bRect.bottom > 0 && bRect.top < vh){
-        var pb = (bRect.top) / vh;
-        var ty = pb * -50;
-        bannerBg.style.transform = 'translateY(' + ty + 'px)';
-      }
-    }
-  }
-  document.addEventListener('scroll', requestParallax, {passive:true});
-  window.addEventListener('resize', requestParallax);
-  onParallax();
-
-  document.querySelectorAll('.care-item').forEach(function(item){
-    var q = item.querySelector('.q');
-    var a = item.querySelector('.a');
-    function setHeight(){
-      if(item.classList.contains('open')){ a.style.maxHeight = a.scrollHeight + 'px'; }
-      else{ a.style.maxHeight = '0px'; }
-    }
-    setHeight();
-    q.addEventListener('click', function(){
-      var willOpen = !item.classList.contains('open');
-      item.classList.toggle('open', willOpen);
-      setHeight();
-    });
-    window.addEventListener('resize', setHeight);
-  });
-
-})();
-</script>
+<script src="assets/js/site.js?v=2" defer></script>
 <script src="assets/js/amora.js" defer></script>
 </body>
 </html>
