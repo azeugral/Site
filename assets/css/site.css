@@ -284,6 +284,46 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .agendar-info strong { display: block; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; color: var(--cacau-2); }
 .agendar-info span { color: var(--cacau); }
 
+/* ficha de atendimento: monta a mensagem e abre o WhatsApp */
+.ficha { max-width: 920px; margin: 48px auto 0; text-align: left; background: var(--branco); border: 1px solid var(--linha); padding: clamp(26px, 4.4vw, 56px); box-shadow: 0 30px 60px -44px rgba(184, 74, 99, .45); }
+.ficha-bloco { border: 0; margin: 0; padding: 0; min-width: 0; }
+.ficha-bloco + .ficha-bloco { margin-top: 38px; padding-top: 34px; border-top: 1px solid var(--linha); }
+.ficha-bloco legend { display: flex; align-items: baseline; gap: 14px; padding: 0; margin-bottom: 22px; font: 300 1.7rem/1 'Antonio', sans-serif; text-transform: uppercase; letter-spacing: .04em; color: var(--cacau); }
+.ficha-bloco legend span { font: 500 .72rem/1 'Jost', sans-serif; letter-spacing: .2em; color: var(--forte); }
+.ficha-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
+.ficha-bloco > .campo + .ficha-grade { margin-top: 22px; }
+.campo { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.campo.larga { grid-column: 1 / -1; }
+.campo > span { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; color: var(--cacau-2); }
+.campo > span b { color: var(--forte); font-weight: 500; }
+.campo > span em { font-style: normal; text-transform: none; letter-spacing: 0; font-size: .82rem; font-weight: 400; color: var(--cacau-2); opacity: .8; margin-left: 4px; }
+.campo input:not([type]), .campo input[inputmode], .campo textarea {
+  width: 100%; font: 400 1rem/1.5 'Jost', sans-serif; color: var(--cacau); background: transparent;
+  border: 0; border-bottom: 1px solid rgba(87, 58, 68, .3); border-radius: 0; padding: 8px 0 10px; outline: none;
+  transition: border-color .3s var(--ease), background-color .3s;
+}
+.campo textarea { resize: vertical; min-height: 104px; border: 1px solid rgba(87, 58, 68, .25); padding: 12px 14px; }
+.campo input::placeholder, .campo textarea::placeholder { color: var(--cacau-2); opacity: .55; }
+.campo input:focus, .campo textarea:focus { border-color: var(--forte); }
+.campo.erro input, .campo.erro textarea { border-color: var(--forte); background: rgba(244, 176, 187, .12); }
+.campo.erro > span { color: var(--forte); }
+.opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
+.opcao { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.opcao input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.opcao span { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px; border: 1px solid rgba(87, 58, 68, .28); font-size: .92rem; color: var(--cacau); background: transparent; transition: background-color .3s var(--ease), border-color .3s var(--ease), color .3s; }
+.opcao span small { font-size: .74rem; color: var(--cacau-2); transition: color .3s; }
+.opcao:hover span { border-color: var(--traco); }
+.opcao input:checked + span { background: var(--forte); border-color: var(--forte); color: #fff; }
+.opcao input:checked + span small { color: rgba(255, 255, 255, .8); }
+.opcao input:checked + span::before { content: ''; width: 12px; height: 12px; background: currentColor; -webkit-mask: url(../img/pata.svg) center/contain no-repeat; mask: url(../img/pata.svg) center/contain no-repeat; }
+.opcao input:focus-visible + span { outline: 1.5px solid var(--forte); outline-offset: 3px; }
+.campo.erro .opcao span { border-color: var(--traco); }
+.ficha-fim { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--linha); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+.ficha-aviso { color: var(--forte); font-size: .94rem; }
+.ficha-nota { font-size: .84rem; color: var(--cacau-2); max-width: 30em; }
+.ficha-ou { margin-top: 52px; font: 400 clamp(2.2rem, 4vw, 3rem)/1 'Mrs Saint Delafield', cursive; color: var(--forte); }
+.ficha-ou + .agendar-botoes { margin-top: 18px; }
+
 /* patinhas ao fundo (só em três seções, bem claras) */
 .paw-trail { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
 .paw-layer { position: absolute; left: 0; right: 0; top: -60px; bottom: -60px; will-change: transform; }
@@ -375,6 +415,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .passo h3 { margin-top: 4px; font-size: 1.28rem; }
   .passo p { margin-top: 6px; }
   .passos-cta .btn, .agendar-botoes .btn { width: 100%; }
+  .ficha { margin-top: 36px; padding: 26px 20px 30px; }
+  .ficha-grade { grid-template-columns: 1fr; gap: 20px; }
+  .ficha-bloco legend { font-size: 1.5rem; }
+  .opcao span { padding: 0 14px; }
+  .ficha-fim .btn { width: 100%; }
   .galeria figcaption { font-size: .62rem; letter-spacing: .12em; padding: 8px 10px 0 0; }
   .relato { padding: 28px 22px; }
   .sobre-assina small { border-left: 0; padding-left: 0; }

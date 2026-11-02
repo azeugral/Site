@@ -24,6 +24,58 @@
   ].join('\n');
   $$('[data-wpp]').forEach(a => { a.href = 'https://wa.me/5515996893103?text=' + encodeURIComponent(MSG); });
 
+  /* ficha de atendimento: confere os obrigatórios, monta a mensagem organizada e abre o WhatsApp */
+  const ficha = $('#ficha');
+  if (ficha) {
+    const f = ficha.elements;
+    const aviso = $('.ficha-aviso', ficha);
+    const sitter = $('#campo-sitter');
+    const val = n => { const e = f[n]; return (e && 'value' in e ? e.value : '').trim(); };
+    const marcados = n => $$(`[name="${n}"]:checked`, ficha).map(i => i.value);
+    const campoDe = n => $(`[name="${n}"]`, ficha).closest('.campo');
+    const servAtualiza = () => { sitter.hidden = !marcados('servico').includes('Pet sitter'); };
+    ficha.addEventListener('change', e => {
+      if (e.target.name === 'servico') servAtualiza();
+      const c = e.target.closest('.campo'); if (c) c.classList.remove('erro');
+    });
+    ficha.addEventListener('input', e => { const c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
+    servAtualiza();
+
+    ficha.addEventListener('submit', e => {
+      e.preventDefault();
+      const faltam = [];
+      [['tutor', 'seu nome'], ['cidade', 'a cidade'], ['pet', 'o nome do pet']].forEach(([n, t]) => { if (!val(n)) faltam.push([n, t]); });
+      if (!marcados('especie').length) faltam.push(['especie', 'se é cão ou gato']);
+      if (!marcados('servico').length) faltam.push(['servico', 'o serviço']);
+      $$('.campo.erro', ficha).forEach(c => c.classList.remove('erro'));
+      if (faltam.length) {
+        faltam.forEach(([n]) => campoDe(n).classList.add('erro'));
+        aviso.textContent = 'Falta preencher ' + faltam.map(x => x[1]).join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
+        aviso.hidden = false;
+        const prim = $(`[name="${faltam[0][0]}"]`, ficha);
+        prim.closest('.campo').scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
+        setTimeout(() => prim.focus({ preventScroll: true }), reduz ? 0 : 450);
+        return;
+      }
+      aviso.hidden = true;
+      const linha = (rot, v) => v ? `*${rot}:* ${v}` : null;
+      const peso = val('peso') ? val('peso').replace(/\s*kg$/i, '') + ' kg' : '';
+      const cidade = [val('cidade'), val('bairro')].filter(Boolean).join(' · ');
+      const partes = [
+        'Olá, Dra. Juliana! Vim pelo site e quero agendar um atendimento.',
+        '', '*TUTOR*', linha('Nome', val('tutor')), linha('Cidade', cidade),
+        '', '*PET*', linha('Nome', val('pet')), linha('Espécie', marcados('especie')[0]), linha('Raça', val('raca')),
+        linha('Idade', val('idade')), linha('Porte', marcados('porte')[0]), linha('Peso', peso), linha('Vacinas em dia', marcados('vacinas')[0]),
+        '', '*ATENDIMENTO*', linha('Serviço', marcados('servico').join(', ')),
+        sitter.hidden ? null : linha('Datas do pet sitter', val('sitter')),
+        linha('O que está acontecendo', val('relato')), linha('Melhor período', marcados('periodo')[0]), linha('Dia de preferência', val('dia'))
+      ].filter(x => x !== null);
+      const url = 'https://wa.me/5515996893103?text=' + encodeURIComponent(partes.join('\n'));
+      const w = window.open(url, '_blank');   // com 'noopener' o retorno é sempre null
+      if (w) w.opener = null; else location.href = url;
+    });
+  }
+
   /* entrada do topo: espera a foto para não piscar */
   const hero = $('.hero');
   const foto = $('.hero-foto img');
