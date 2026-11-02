@@ -12,7 +12,7 @@ Estático, sem build: `index.html`, `assets/css/site.css`, `assets/js/site.js` (
 ## CONFIRMAR
 - Nome do curso: usei o texto que a cliente mandou. A EBRAMEV (Campinas) divulga "AnestCare" e "Emergência e Terapia Intensiva" como cursos separados; conferir se é um curso só ou dois.
 - Resposta do FAQ sobre a pós (avaliação, dor, sedação segura, encaminhamento): confirmar com ela.
-- Pet sitter como serviço extra (veio do banner final): confirmar se segue oferecendo.
+- Pet sitter: confirmado (entrou no banner v12 de 01/11).
 - Jaleco da foto do topo tem um bordado de outra instituição na manga (aparece só a ponta, "...rio / ...nio").
 - A foto g1 (logo do Siriuz no uniforme) saiu da galeria.
 - Link antigo do WhatsApp Business (`api.whatsapp.com/message/OHXGBG67TJULG1`) foi trocado pelo `wa.me` com texto; se ela preferir o catálogo, voltar.

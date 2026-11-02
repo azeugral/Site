@@ -5,8 +5,23 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* todo botão de WhatsApp abre com a mensagem pronta */
-  const MSG = 'Olá, Dra. Juliana! Vim pelo site e quero agendar uma visita para o meu pet.';
+  /* todo botão de WhatsApp abre com a ficha de atendimento pronta para preencher */
+  const MSG = [
+    'Olá, Dra. Juliana! Vim pelo site e quero agendar um atendimento.',
+    '',
+    '*Tutor(a):* ',
+    '*Cidade e bairro:* ',
+    '',
+    '*Nome do pet:* ',
+    '*Cão ou gato:* ',
+    '*Raça:* ',
+    '*Idade:* ',
+    '*Porte ou peso aproximado:* ',
+    '',
+    '*Serviço:* (consulta, vacina, exames, medicação, curativo, acompanhamento ou pet sitter)',
+    '*O que está acontecendo:* ',
+    '*Melhor dia e horário:* '
+  ].join('\n');
   $$('[data-wpp]').forEach(a => { a.href = 'https://wa.me/5515996893103?text=' + encodeURIComponent(MSG); });
 
   /* entrada do topo: espera a foto para não piscar */
