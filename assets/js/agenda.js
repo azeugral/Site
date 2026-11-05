@@ -58,14 +58,17 @@
       if (estado.dias[data]) {
         b.setAttribute('aria-label', dataBonita(data));
         b.setAttribute('aria-pressed', String(data === estado.dia));
-        b.addEventListener('click', () => { estado.dia = data; estado.hora = null; desenhar(); limparErro(); });
+        b.addEventListener('click', () => { estado.dia = data; estado.hora = null; desenhar(); limparErro(); raiz.querySelector('.agenda-horas').scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); });
       } else b.disabled = true;
       grade.append(b);
     }
-    raiz.append(topo, grade);
+    const cal = el('div', 'agenda-cal');
+    cal.append(topo, grade);
+    raiz.append(cal);
 
+    const horas = el('div', 'agenda-horas');
+    raiz.append(horas);
     if (estado.dia && estado.dias[estado.dia]) {
-      const horas = el('div', 'agenda-horas');
       horas.append(el('p', 'agenda-rotulo', dataBonita(estado.dia)));
       const lista = el('div', 'agenda-lista');
       estado.dias[estado.dia].forEach(h => {
@@ -75,11 +78,10 @@
         lista.append(b);
       });
       horas.append(lista);
-      raiz.append(horas);
-    } else raiz.append(el('p', 'agenda-dica', 'Escolha um dia para ver os horários.'));
+    } else horas.append(el('p', 'agenda-dica', 'Escolha um dia para ver os horários.'));
   }
 
-  const limparErro = () => raiz.closest('.campo')?.classList.remove('erro');
+  const limparErro = () => { raiz.closest('.campo')?.classList.remove('erro'); ficha.querySelector('.ficha-aviso').hidden = true; };
 
   async function buscar() {
     if (!api) return mostrar(false);
@@ -97,7 +99,6 @@
       if (estado.dia && !estado.dias[estado.dia]) estado.dia = null;
       mostrar(true);
       desenhar();
-      carregarTurnstile();
     } catch {
       if (pedido === estado.pedido) mostrar(false);
     }
@@ -107,7 +108,7 @@
     if (!chaveTurnstile || estado.widget !== null || document.getElementById('cf-turnstile-js')) return;
     window.agendaTurnstile = () => {
       estado.widget = window.turnstile.render('#agenda-verificacao', {
-        sitekey: chaveTurnstile, appearance: 'interaction-only', language: 'pt-br',
+        sitekey: chaveTurnstile, appearance: 'interaction-only', theme: 'light', language: 'pt-br',
         callback: t => { estado.token = t; },
         'expired-callback': () => { estado.token = ''; },
         'error-callback': () => { estado.token = ''; }
@@ -146,7 +147,8 @@
   window.agendaFicha = {
     get ativa() { return estado.ativa; },
     get escolha() { return estado.dia && estado.hora ? { data: estado.dia, hora: estado.hora, texto: `${dataBonita(estado.dia)}, às ${horaBonita(estado.hora)}` } : null; },
-    reservar
+    reservar,
+    preparar: carregarTurnstile
   };
 
   let espera;

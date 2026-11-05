@@ -50,28 +50,77 @@
       textoEnviar.textContent = e.detail.ativa ? 'Reservar horário' : 'Enviar pelo WhatsApp';
     });
 
+    /* ficha em 3 etapas: atendimento, horário e dados */
+    const etapas = $$('[data-etapa]', ficha);
+    const atalhos = $$('[data-ir]', ficha);
+    const voltar = $('#ficha-voltar');
+    const seguir = $('#ficha-seguir');
+    const reservar = $('#ficha-botao');
+    const resumo = $('#ficha-resumo');
+    let atual = 1, alcancada = 1;
+
+    const faltamEm = n => {
+      const faltam = [];
+      if (n === 1 && !marcados('servico').length) faltam.push(['servico', 'o serviço']);
+      if (n === 2) { const ag = agenda(); if (ag && !ag.escolha) faltam.push(['__agenda', 'o dia e o horário']); }
+      if (n === 3) {
+        [['tutor', 'seu nome'], ['telefone', 'o WhatsApp'], ['cidade', 'a cidade'], ['pet', 'o nome do pet']].forEach(([c, t]) => { if (!val(c)) faltam.push([c, t]); });
+        if (val('telefone') && !/^\d{10,11}$/.test(val('telefone').replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, ''))) faltam.push(['telefone', 'o WhatsApp com DDD']);
+        if (!marcados('especie').length) faltam.push(['especie', 'se é cão ou gato']);
+      }
+      return faltam;
+    };
+
+    const conferir = n => {
+      const faltam = faltamEm(n);
+      $$('.campo.erro', ficha).forEach(c => c.classList.remove('erro'));
+      if (!faltam.length) { aviso.hidden = true; return true; }
+      const alvo = c => c === '__agenda' ? $('#agenda') : $(`[name="${c}"]`, ficha);
+      faltam.forEach(([c]) => alvo(c).closest('.campo').classList.add('erro'));
+      aviso.textContent = 'Falta preencher ' + faltam.map(x => x[1]).join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
+      aviso.hidden = false;
+      alvo(faltam[0][0]).focus({ preventScroll: true });
+      return false;
+    };
+
+    const ir = (n, rolar = true) => {
+      atual = n; alcancada = Math.max(alcancada, n);
+      etapas.forEach(b => { b.hidden = Number(b.dataset.etapa) !== n; });
+      atalhos.forEach(b => {
+        const i = Number(b.dataset.ir);
+        b.disabled = i > alcancada;
+        b.classList.toggle('feita', i < n);
+        if (i === n) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+      });
+      voltar.hidden = n === 1;
+      seguir.hidden = n === 3;
+      reservar.hidden = n !== 3;
+      aviso.hidden = true;
+      const ag = agenda();
+      const partes = n > 1 ? [marcados('servico').join(', ')] : [];
+      if (n === 3 && ag && ag.escolha) partes.push(ag.escolha.texto);
+      if (n === 3 && ag) ag.preparar();
+      resumo.textContent = partes.filter(Boolean).join(' · ');
+      resumo.hidden = !resumo.textContent;
+      if (rolar) ficha.scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'start' });
+    };
+
+    ficha.classList.add('em-etapas');
+    $('#etapas').hidden = false;
+    atalhos.forEach(b => b.addEventListener('click', () => ir(Number(b.dataset.ir))));
+    voltar.addEventListener('click', () => ir(atual - 1));
+    seguir.addEventListener('click', () => { if (conferir(atual)) ir(atual + 1); });
+    ir(1, false);
+
     ficha.addEventListener('submit', async e => {
       e.preventDefault();
       if (ficha.dataset.enviando) return;
-      const faltam = [];
-      [['tutor', 'seu nome'], ['telefone', 'o WhatsApp'], ['cidade', 'a cidade'], ['pet', 'o nome do pet']].forEach(([n, t]) => { if (!val(n)) faltam.push([n, t]); });
-      if (val('telefone') && !/^\d{10,11}$/.test(val('telefone').replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, ''))) faltam.push(['telefone', 'o WhatsApp com DDD']);
-      if (!marcados('especie').length) faltam.push(['especie', 'se é cão ou gato']);
-      if (!marcados('servico').length) faltam.push(['servico', 'o serviço']);
-      const ag = agenda();
-      if (ag && !ag.escolha) faltam.push(['__agenda', 'o dia e o horário']);
-      $$('.campo.erro', ficha).forEach(c => c.classList.remove('erro'));
-      if (faltam.length) {
-        const alvo = n => n === '__agenda' ? $('#agenda') : $(`[name="${n}"]`, ficha);
-        faltam.forEach(([n]) => alvo(n).closest('.campo').classList.add('erro'));
-        aviso.textContent = 'Falta preencher ' + faltam.map(x => x[1]).join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
-        aviso.hidden = false;
-        const prim = alvo(faltam[0][0]);
-        prim.closest('.campo').scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
-        setTimeout(() => prim.focus({ preventScroll: true }), reduz ? 0 : 450);
-        return;
-      }
+      /* Enter antes da última etapa só avança */
+      if (atual < 3) { if (conferir(atual)) ir(atual + 1); return; }
+      const incompleta = [1, 2, 3].find(n => faltamEm(n).length);
+      if (incompleta) { if (incompleta !== atual) ir(incompleta); conferir(incompleta); return; }
       aviso.hidden = true;
+      const ag = agenda();
       const linha = (rot, v) => v ? `*${rot}:* ${v}` : null;
       const peso = val('peso') ? val('peso').replace(/\s*kg$/i, '') + ' kg' : '';
       const cidade = [val('cidade'), val('bairro')].filter(Boolean).join(' · ');
@@ -90,9 +139,9 @@
         });
         delete ficha.dataset.enviando; botao.disabled = false; textoEnviar.textContent = 'Reservar horário';
         if (r === 'ocupado') {
+          ir(2);
           aviso.textContent = 'Esse horário acabou de ser reservado. Escolha outro, por favor.';
           aviso.hidden = false;
-          $('#agenda').scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
           return;
         }
         reservado = r === 'ok';

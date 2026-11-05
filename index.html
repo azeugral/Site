@@ -40,7 +40,7 @@
 <link rel="preload" as="font" type="font/woff2" href="assets/fontes/jost-latin.woff2" crossorigin>
 <link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-760.webp 760w, assets/img/hero.webp 1254w" imagesizes="(max-width: 900px) 100vw, 54vw">
 <link rel="stylesheet" href="assets/css/fontes.css?v=2">
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 <noscript><style>.revela{opacity:1;transform:none}.galeria img{clip-path:none;transform:none}.gaveta{display:none}</style></noscript>
 </head>
 <body>
@@ -282,67 +282,95 @@
   <div class="caixa revela">
     <p class="chapeu"><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Agende a visita</p>
     <h2 class="titulo">Seu pet atendido sem sair de casa</h2>
-    <p class="texto">Preencha a ficha com os dados do tutor e do pet e escolha o melhor horário. Depois é só confirmar comigo pelo WhatsApp.</p>
+    <p class="texto">Em três passos você escolhe o atendimento e o horário. Depois é só confirmar comigo pelo WhatsApp.</p>
 
     <form class="ficha revela" id="ficha" novalidate>
-      <fieldset class="ficha-bloco">
-        <legend><span>01</span>Tutor</legend>
-        <div class="ficha-grade">
-          <label class="campo"><span>Seu nome <b>*</b></span><input name="tutor" autocomplete="name" required></label>
-          <label class="campo"><span>WhatsApp com DDD <b>*</b></span><input name="telefone" inputmode="tel" autocomplete="tel-national" required placeholder="(15) 99999-9999"></label>
-          <label class="campo"><span>Cidade <b>*</b></span><input name="cidade" list="cidades" autocomplete="address-level2" required placeholder="Tietê, Cerquilho, Jumirim…"></label>
-          <label class="campo"><span>Bairro ou ponto de referência</span><input name="bairro" autocomplete="address-level3"></label>
-        </div>
-        <datalist id="cidades"><option value="Tietê"><option value="Cerquilho"><option value="Jumirim"><option value="Laranjal Paulista"><option value="Porto Feliz"><option value="Boituva"></datalist>
-      </fieldset>
+      <ol class="etapas" id="etapas" aria-label="Etapas do agendamento" hidden>
+        <li><button type="button" data-ir="1"><b>1</b><span>Atendimento</span></button></li>
+        <li><button type="button" data-ir="2"><b>2</b><span>Horário</span></button></li>
+        <li><button type="button" data-ir="3"><b>3</b><span>Seus dados</span></button></li>
+      </ol>
+      <p class="ficha-resumo" id="ficha-resumo" hidden></p>
 
-      <fieldset class="ficha-bloco">
-        <legend><span>02</span>Pet</legend>
-        <div class="ficha-grade">
-          <label class="campo"><span>Nome do pet <b>*</b></span><input name="pet" required></label>
-          <div class="campo" role="radiogroup" aria-labelledby="l-especie"><span id="l-especie">Espécie <b>*</b></span>
-            <div class="opcoes"><label class="opcao"><input type="radio" name="especie" value="Cão" required><span>Cão</span></label><label class="opcao"><input type="radio" name="especie" value="Gato"><span>Gato</span></label></div></div>
-          <label class="campo"><span>Raça</span><input name="raca" placeholder="SRD se não tiver raça definida"></label>
-          <label class="campo"><span>Idade</span><input name="idade" placeholder="ex.: 4 anos, 3 meses"></label>
-          <div class="campo larga" role="radiogroup" aria-labelledby="l-porte"><span id="l-porte">Porte</span>
-            <div class="opcoes"><label class="opcao"><input type="radio" name="porte" value="Pequeno (até 10 kg)"><span>Pequeno <small>até 10 kg</small></span></label><label class="opcao"><input type="radio" name="porte" value="Médio (10 a 25 kg)"><span>Médio <small>10 a 25 kg</small></span></label><label class="opcao"><input type="radio" name="porte" value="Grande (acima de 25 kg)"><span>Grande <small>acima de 25 kg</small></span></label></div></div>
-          <label class="campo"><span>Peso aproximado</span><input name="peso" inputmode="decimal" placeholder="em kg, se souber"></label>
-          <div class="campo" role="radiogroup" aria-labelledby="l-vacinas"><span id="l-vacinas">Vacinas em dia?</span>
-            <div class="opcoes"><label class="opcao"><input type="radio" name="vacinas" value="Sim"><span>Sim</span></label><label class="opcao"><input type="radio" name="vacinas" value="Não"><span>Não</span></label><label class="opcao"><input type="radio" name="vacinas" value="Não sei"><span>Não sei</span></label></div></div>
-        </div>
-      </fieldset>
-
-      <fieldset class="ficha-bloco">
-        <legend><span>03</span>Atendimento</legend>
-        <div class="campo larga" role="group" aria-labelledby="l-servico"><span id="l-servico">Serviço <b>*</b> <em>pode marcar mais de um</em></span>
-          <div class="opcoes">
-            <label class="opcao"><input type="checkbox" name="servico" value="Consulta clínica"><span>Consulta clínica</span></label>
-            <label class="opcao"><input type="checkbox" name="servico" value="Vacinação"><span>Vacinação</span></label>
-            <label class="opcao"><input type="checkbox" name="servico" value="Coleta de exames"><span>Coleta de exames</span></label>
-            <label class="opcao"><input type="checkbox" name="servico" value="Medicação"><span>Medicação</span></label>
-            <label class="opcao"><input type="checkbox" name="servico" value="Curativo"><span>Curativo</span></label>
-            <label class="opcao"><input type="checkbox" name="servico" value="Acompanhamento"><span>Acompanhamento</span></label>
-            <label class="opcao"><input type="checkbox" name="servico" value="Pet sitter"><span>Pet sitter</span></label>
-          </div></div>
-        <div class="ficha-grade">
-          <label class="campo larga" id="campo-sitter" hidden><span>Datas do pet sitter</span><input name="sitter" placeholder="ex.: de 20 a 24/12, duas visitas por dia"></label>
-          <label class="campo larga"><span>O que está acontecendo?</span><textarea name="relato" rows="4" placeholder="Sintomas, há quanto tempo, se toma algum remédio, se é bravo ao manipular…"></textarea></label>
-          <div class="campo larga" role="group" aria-labelledby="l-agenda"><span id="l-agenda" data-rotulo-agenda hidden>Dia e horário <b>*</b></span>
-            <div class="agenda" id="agenda" data-api="https://lrgz-agenda.azeugral.workers.dev/v1/juliana-cubas" data-turnstile="0x4AAAAAAF1Ls_tYFmLOZhD7" hidden></div>
+      <fieldset class="ficha-bloco" data-etapa="1">
+        <legend>Do que seu pet precisa?</legend>
+        <div class="ficha-duas">
+          <div class="campo" role="group" aria-labelledby="l-servico"><span id="l-servico">Serviço <b>*</b> <em>pode marcar mais de um</em></span>
+            <div class="opcoes opcoes-grade">
+              <label class="opcao"><input type="checkbox" name="servico" value="Consulta clínica"><span>Consulta clínica</span></label>
+              <label class="opcao"><input type="checkbox" name="servico" value="Vacinação"><span>Vacinação</span></label>
+              <label class="opcao"><input type="checkbox" name="servico" value="Coleta de exames"><span>Coleta de exames</span></label>
+              <label class="opcao"><input type="checkbox" name="servico" value="Medicação"><span>Medicação</span></label>
+              <label class="opcao"><input type="checkbox" name="servico" value="Curativo"><span>Curativo</span></label>
+              <label class="opcao"><input type="checkbox" name="servico" value="Acompanhamento"><span>Acompanhamento</span></label>
+              <label class="opcao"><input type="checkbox" name="servico" value="Pet sitter"><span>Pet sitter</span></label>
+            </div></div>
+          <div class="ficha-coluna">
+            <label class="campo" id="campo-sitter" hidden><span>Datas do pet sitter</span><input name="sitter" placeholder="ex.: de 20 a 24/12, duas visitas por dia"></label>
+            <label class="campo"><span>O que está acontecendo?</span><textarea name="relato" rows="4" placeholder="Sintomas, há quanto tempo, se toma algum remédio, se é bravo ao manipular…"></textarea></label>
           </div>
-          <div class="ficha-grade campo larga" id="agenda-plano-b">
-            <div class="campo" role="radiogroup" aria-labelledby="l-periodo"><span id="l-periodo">Melhor período</span>
+        </div>
+      </fieldset>
+
+      <fieldset class="ficha-bloco" data-etapa="2">
+        <legend>Quando fica melhor?</legend>
+        <div class="campo" role="group" aria-labelledby="l-agenda"><span id="l-agenda" data-rotulo-agenda hidden>Dia e horário <b>*</b></span>
+          <div class="agenda" id="agenda" data-api="https://lrgz-agenda.azeugral.workers.dev/v1/juliana-cubas" data-turnstile="0x4AAAAAAF1Ls_tYFmLOZhD7" hidden></div>
+        </div>
+        <div class="ficha-grade" id="agenda-plano-b">
+          <div class="campo" role="radiogroup" aria-labelledby="l-periodo"><span id="l-periodo">Melhor período</span>
             <div class="opcoes"><label class="opcao"><input type="radio" name="periodo" value="Manhã"><span>Manhã</span></label><label class="opcao"><input type="radio" name="periodo" value="Tarde"><span>Tarde</span></label><label class="opcao"><input type="radio" name="periodo" value="Tanto faz"><span>Tanto faz</span></label></div></div>
           <label class="campo"><span>Dia de preferência</span><input name="dia" placeholder="ex.: sábado, ou o quanto antes"></label>
-          </div>
-          <div id="agenda-verificacao" class="campo larga agenda-verificacao"></div>
-          <label class="pote" aria-hidden="true">Não preencha<input name="site" tabindex="-1" autocomplete="off"></label>
         </div>
       </fieldset>
+
+      <fieldset class="ficha-bloco" data-etapa="3">
+        <legend>Quem vamos atender?</legend>
+        <div class="ficha-duas">
+          <div class="ficha-coluna">
+            <p class="ficha-sub">Você</p>
+            <label class="campo"><span>Seu nome <b>*</b></span><input name="tutor" autocomplete="name" required></label>
+            <label class="campo"><span>WhatsApp com DDD <b>*</b></span><input name="telefone" inputmode="tel" autocomplete="tel-national" required placeholder="(15) 99999-9999"></label>
+            <div class="ficha-par">
+              <label class="campo"><span>Cidade <b>*</b></span><input name="cidade" list="cidades" autocomplete="address-level2" required placeholder="Tietê"></label>
+              <label class="campo"><span>Bairro</span><input name="bairro" autocomplete="address-level3"></label>
+            </div>
+            <datalist id="cidades"><option value="Tietê"><option value="Cerquilho"><option value="Jumirim"><option value="Laranjal Paulista"><option value="Porto Feliz"><option value="Boituva"></datalist>
+          </div>
+          <div class="ficha-coluna">
+            <p class="ficha-sub">O pet</p>
+            <label class="campo"><span>Nome do pet <b>*</b></span><input name="pet" required></label>
+            <div class="campo" role="radiogroup" aria-labelledby="l-especie"><span id="l-especie">Espécie <b>*</b></span>
+              <div class="opcoes"><label class="opcao"><input type="radio" name="especie" value="Cão" required><span>Cão</span></label><label class="opcao"><input type="radio" name="especie" value="Gato"><span>Gato</span></label></div></div>
+            <details class="ficha-mais">
+              <summary>Mais sobre o pet <em>opcional</em></summary>
+              <div class="ficha-mais-corpo">
+                <div class="ficha-par">
+                  <label class="campo"><span>Raça</span><input name="raca" placeholder="SRD, se não tiver"></label>
+                  <label class="campo"><span>Idade</span><input name="idade" placeholder="ex.: 4 anos"></label>
+                </div>
+                <div class="campo" role="radiogroup" aria-labelledby="l-porte"><span id="l-porte">Porte</span>
+                  <div class="opcoes"><label class="opcao"><input type="radio" name="porte" value="Pequeno (até 10 kg)"><span>Pequeno</span></label><label class="opcao"><input type="radio" name="porte" value="Médio (10 a 25 kg)"><span>Médio</span></label><label class="opcao"><input type="radio" name="porte" value="Grande (acima de 25 kg)"><span>Grande</span></label></div></div>
+                <div class="ficha-par">
+                  <label class="campo"><span>Peso</span><input name="peso" inputmode="decimal" placeholder="em kg"></label>
+                  <div class="campo" role="radiogroup" aria-labelledby="l-vacinas"><span id="l-vacinas">Vacinas em dia?</span>
+                    <div class="opcoes"><label class="opcao"><input type="radio" name="vacinas" value="Sim"><span>Sim</span></label><label class="opcao"><input type="radio" name="vacinas" value="Não"><span>Não</span></label><label class="opcao"><input type="radio" name="vacinas" value="Não sei"><span>Não sei</span></label></div></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </fieldset>
+      <label class="pote" aria-hidden="true">Não preencha<input name="site" tabindex="-1" autocomplete="off"></label>
 
       <div class="ficha-fim">
         <p class="ficha-aviso" role="alert" aria-live="polite" hidden></p>
-        <button class="btn btn-cheio btn-grande" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg><span id="ficha-enviar">Enviar pelo WhatsApp</span></button>
+        <div id="agenda-verificacao" class="agenda-verificacao"></div>
+        <div class="ficha-nav">
+          <button class="btn btn-grande" type="button" id="ficha-voltar" hidden>Voltar</button>
+          <button class="btn btn-cheio btn-grande" type="button" id="ficha-seguir" hidden>Continuar</button>
+          <button class="btn btn-cheio btn-grande" type="submit" id="ficha-botao"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg><span id="ficha-enviar">Enviar pelo WhatsApp</span></button>
+        </div>
         <p class="ficha-nota">Atendimento com hora marcada. Em emergência grave, procure o pronto-atendimento mais próximo.</p>
       </div>
     </form>
@@ -390,8 +418,8 @@
   <a class="btn btn-cheio" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Agendar no WhatsApp</a>
 </div>
 
-<script src="assets/js/agenda.js?v=1" defer></script>
-<script src="assets/js/site.js?v=6" defer></script>
+<script src="assets/js/agenda.js?v=2" defer></script>
+<script src="assets/js/site.js?v=7" defer></script>
 <script src="assets/js/amora.js" defer></script>
 </body>
 </html>
