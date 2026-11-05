@@ -41,18 +41,32 @@
     ficha.addEventListener('input', e => { const c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
     servAtualiza();
 
-    ficha.addEventListener('submit', e => {
+    /* com a agenda ligada o botão reserva o horário; sem ela, segue direto para o WhatsApp */
+    const rotuloAgenda = $('[data-rotulo-agenda]');
+    const textoEnviar = $('#ficha-enviar');
+    const agenda = () => window.agendaFicha && window.agendaFicha.ativa ? window.agendaFicha : null;
+    ficha.addEventListener('agenda:modo', e => {
+      rotuloAgenda.hidden = !e.detail.ativa;
+      textoEnviar.textContent = e.detail.ativa ? 'Reservar horário' : 'Enviar pelo WhatsApp';
+    });
+
+    ficha.addEventListener('submit', async e => {
       e.preventDefault();
+      if (ficha.dataset.enviando) return;
       const faltam = [];
-      [['tutor', 'seu nome'], ['cidade', 'a cidade'], ['pet', 'o nome do pet']].forEach(([n, t]) => { if (!val(n)) faltam.push([n, t]); });
+      [['tutor', 'seu nome'], ['telefone', 'o WhatsApp'], ['cidade', 'a cidade'], ['pet', 'o nome do pet']].forEach(([n, t]) => { if (!val(n)) faltam.push([n, t]); });
+      if (val('telefone') && !/^\d{10,11}$/.test(val('telefone').replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, ''))) faltam.push(['telefone', 'o WhatsApp com DDD']);
       if (!marcados('especie').length) faltam.push(['especie', 'se é cão ou gato']);
       if (!marcados('servico').length) faltam.push(['servico', 'o serviço']);
+      const ag = agenda();
+      if (ag && !ag.escolha) faltam.push(['__agenda', 'o dia e o horário']);
       $$('.campo.erro', ficha).forEach(c => c.classList.remove('erro'));
       if (faltam.length) {
-        faltam.forEach(([n]) => campoDe(n).classList.add('erro'));
+        const alvo = n => n === '__agenda' ? $('#agenda') : $(`[name="${n}"]`, ficha);
+        faltam.forEach(([n]) => alvo(n).closest('.campo').classList.add('erro'));
         aviso.textContent = 'Falta preencher ' + faltam.map(x => x[1]).join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
         aviso.hidden = false;
-        const prim = $(`[name="${faltam[0][0]}"]`, ficha);
+        const prim = alvo(faltam[0][0]);
         prim.closest('.campo').scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
         setTimeout(() => prim.focus({ preventScroll: true }), reduz ? 0 : 450);
         return;
@@ -61,16 +75,54 @@
       const linha = (rot, v) => v ? `*${rot}:* ${v}` : null;
       const peso = val('peso') ? val('peso').replace(/\s*kg$/i, '') + ' kg' : '';
       const cidade = [val('cidade'), val('bairro')].filter(Boolean).join(' · ');
+      if (f.site.value) return;
+      const sitterTxt = sitter.hidden ? '' : `Pet sitter${val('sitter') ? ': ' + val('sitter') : ''}`;
+      let horario = null, reservado = false;
+      if (ag) {
+        const botao = $('button[type=submit]', ficha);
+        ficha.dataset.enviando = '1'; botao.disabled = true; textoEnviar.textContent = 'Reservando...';
+        horario = ag.escolha;
+        const r = await ag.reservar({
+          servicos: marcados('servico'), tutor: val('tutor'), telefone: val('telefone'), cidade: val('cidade'), bairro: val('bairro'),
+          pet: val('pet'), especie: marcados('especie')[0], raca: val('raca'), idade: val('idade'),
+          porte: marcados('porte')[0] || '', peso, vacinas: marcados('vacinas')[0] || '',
+          relato: [val('relato'), sitterTxt].filter(Boolean).join('\n')
+        });
+        delete ficha.dataset.enviando; botao.disabled = false; textoEnviar.textContent = 'Reservar horário';
+        if (r === 'ocupado') {
+          aviso.textContent = 'Esse horário acabou de ser reservado. Escolha outro, por favor.';
+          aviso.hidden = false;
+          $('#agenda').scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
+          return;
+        }
+        reservado = r === 'ok';
+      }
       const partes = [
         'Olá, Dra. Juliana! Vim pelo site e quero agendar um atendimento.',
-        '', '*TUTOR*', linha('Nome', val('tutor')), linha('Cidade', cidade),
+        '', '*TUTOR*', linha('Nome', val('tutor')), linha('WhatsApp', val('telefone')), linha('Cidade', cidade),
         '', '*PET*', linha('Nome', val('pet')), linha('Espécie', marcados('especie')[0]), linha('Raça', val('raca')),
         linha('Idade', val('idade')), linha('Porte', marcados('porte')[0]), linha('Peso', peso), linha('Vacinas em dia', marcados('vacinas')[0]),
         '', '*ATENDIMENTO*', linha('Serviço', marcados('servico').join(', ')),
         sitter.hidden ? null : linha('Datas do pet sitter', val('sitter')),
-        linha('O que está acontecendo', val('relato')), linha('Melhor período', marcados('periodo')[0]), linha('Dia de preferência', val('dia'))
+        linha('O que está acontecendo', val('relato')), 
+        horario ? linha(reservado ? 'Horário pré-reservado' : 'Horário desejado', horario.texto) : linha('Melhor período', marcados('periodo')[0]),
+        horario ? null : linha('Dia de preferência', val('dia'))
       ].filter(x => x !== null);
       const url = 'https://wa.me/5515996893103?text=' + encodeURIComponent(partes.join('\n'));
+      if (ag) {
+        /* depois de esperar a rede o navegador barra pop-up: o toque final fica num botão de verdade */
+        const feita = $('#ficha-feita');
+        $('.chapeu', feita).textContent = reservado ? 'Horário pré-reservado' : 'Não consegui reservar agora';
+        $('#feita-horario').textContent = horario.texto;
+        $('.feita-texto', feita).textContent = reservado
+          ? 'Falta só um passo: envie a ficha no WhatsApp para eu confirmar a visita.'
+          : 'Envie a ficha pelo WhatsApp com esse horário e eu vejo a disponibilidade com você.';
+        $('#feita-wpp').href = url;
+        ficha.hidden = true; feita.hidden = false;
+        feita.scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
+        feita.focus({ preventScroll: true });
+        return;
+      }
       const w = window.open(url, '_blank');   // com 'noopener' o retorno é sempre null
       if (w) w.opener = null; else location.href = url;
     });

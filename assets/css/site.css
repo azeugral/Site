@@ -318,6 +318,33 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .opcao input:checked + span::before { content: ''; width: 12px; height: 12px; background: currentColor; -webkit-mask: url(../img/pata.svg) center/contain no-repeat; mask: url(../img/pata.svg) center/contain no-repeat; }
 .opcao input:focus-visible + span { outline: 1.5px solid var(--forte); outline-offset: 3px; }
 .campo.erro .opcao span { border-color: var(--traco); }
+/* calendário de horários livres (serviço lrgz-agenda) */
+.agenda { border: 1px solid var(--linha); padding: clamp(16px, 2.6vw, 26px); }
+.campo.erro .agenda { border-color: var(--traco); }
+.agenda-topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.agenda-topo strong { font: 300 1.35rem/1 'Antonio', sans-serif; text-transform: uppercase; letter-spacing: .05em; }
+.agenda-seta { width: 44px; height: 44px; border: 1px solid rgba(87, 58, 68, .28); background: none; font-size: 1.3rem; line-height: 1; cursor: pointer; transition: border-color .3s, color .3s; }
+.agenda-seta:hover:not(:disabled) { border-color: var(--traco); color: var(--forte); }
+.agenda-seta:disabled { opacity: .3; cursor: default; }
+.agenda-grade { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.agenda-sem { text-align: center; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--cacau-2); padding: 6px 0; }
+.agenda-dia { height: 46px; min-width: 0; padding: 0; border: 1px solid rgba(87, 58, 68, .22); background: none; font-size: .95rem; cursor: pointer; transition: background .25s, border-color .25s, color .25s; }
+.agenda-dia:hover:not(:disabled) { border-color: var(--traco); }
+.agenda-dia:disabled { border-color: transparent; color: var(--cacau-2); opacity: .38; cursor: default; }
+.agenda-dia[aria-pressed="true"], .agenda-hora[aria-pressed="true"] { background: var(--forte); border-color: var(--forte); color: #fff; }
+.agenda-horas { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--linha); }
+.agenda-rotulo { font-size: .92rem; margin-bottom: 10px; color: var(--cacau-2); }
+.agenda-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 6px; }
+.agenda-hora { min-height: 44px; border: 1px solid rgba(87, 58, 68, .28); background: none; font-size: .92rem; cursor: pointer; transition: background .25s, border-color .25s, color .25s; }
+.agenda-hora:hover { border-color: var(--traco); }
+.agenda-dica, .agenda-vazia { margin-top: 14px; font-size: .92rem; color: var(--cacau-2); text-align: center; }
+.agenda-vazia { margin-top: 0; }
+#agenda-plano-b { display: grid; flex-direction: unset; }
+.agenda-verificacao:empty { display: none; }
+.pote { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.ficha-feita { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; outline: none; }
+.ficha-feita h3 { font: 300 clamp(1.9rem, 4.4vw, 2.8rem)/1.1 'Antonio', sans-serif; text-transform: uppercase; letter-spacing: .03em; }
+.ficha-feita .feita-texto { max-width: 32em; }
 .ficha-fim { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--linha); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
 .ficha-aviso { color: var(--forte); font-size: .94rem; }
 .ficha-nota { font-size: .84rem; color: var(--cacau-2); max-width: 30em; }

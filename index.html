@@ -282,15 +282,16 @@
   <div class="caixa revela">
     <p class="chapeu"><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Agende a visita</p>
     <h2 class="titulo">Seu pet atendido sem sair de casa</h2>
-    <p class="texto">Preencha a ficha com os dados do tutor e do pet. Ao enviar, ela vai organizada para o meu WhatsApp e eu respondo com os horários disponíveis.</p>
+    <p class="texto">Preencha a ficha com os dados do tutor e do pet e escolha o melhor horário. Depois é só confirmar comigo pelo WhatsApp.</p>
 
     <form class="ficha revela" id="ficha" novalidate>
       <fieldset class="ficha-bloco">
         <legend><span>01</span>Tutor</legend>
         <div class="ficha-grade">
           <label class="campo"><span>Seu nome <b>*</b></span><input name="tutor" autocomplete="name" required></label>
+          <label class="campo"><span>WhatsApp com DDD <b>*</b></span><input name="telefone" inputmode="tel" autocomplete="tel-national" required placeholder="(15) 99999-9999"></label>
           <label class="campo"><span>Cidade <b>*</b></span><input name="cidade" list="cidades" autocomplete="address-level2" required placeholder="Tietê, Cerquilho, Jumirim…"></label>
-          <label class="campo larga"><span>Bairro ou ponto de referência</span><input name="bairro" autocomplete="address-level3"></label>
+          <label class="campo"><span>Bairro ou ponto de referência</span><input name="bairro" autocomplete="address-level3"></label>
         </div>
         <datalist id="cidades"><option value="Tietê"><option value="Cerquilho"><option value="Jumirim"><option value="Laranjal Paulista"><option value="Porto Feliz"><option value="Boituva"></datalist>
       </fieldset>
@@ -326,18 +327,32 @@
         <div class="ficha-grade">
           <label class="campo larga" id="campo-sitter" hidden><span>Datas do pet sitter</span><input name="sitter" placeholder="ex.: de 20 a 24/12, duas visitas por dia"></label>
           <label class="campo larga"><span>O que está acontecendo?</span><textarea name="relato" rows="4" placeholder="Sintomas, há quanto tempo, se toma algum remédio, se é bravo ao manipular…"></textarea></label>
-          <div class="campo" role="radiogroup" aria-labelledby="l-periodo"><span id="l-periodo">Melhor período</span>
+          <div class="campo larga" role="group" aria-labelledby="l-agenda"><span id="l-agenda" data-rotulo-agenda hidden>Dia e horário <b>*</b></span>
+            <div class="agenda" id="agenda" data-api="" data-turnstile="" hidden></div>
+          </div>
+          <div class="ficha-grade campo larga" id="agenda-plano-b">
+            <div class="campo" role="radiogroup" aria-labelledby="l-periodo"><span id="l-periodo">Melhor período</span>
             <div class="opcoes"><label class="opcao"><input type="radio" name="periodo" value="Manhã"><span>Manhã</span></label><label class="opcao"><input type="radio" name="periodo" value="Tarde"><span>Tarde</span></label><label class="opcao"><input type="radio" name="periodo" value="Tanto faz"><span>Tanto faz</span></label></div></div>
           <label class="campo"><span>Dia de preferência</span><input name="dia" placeholder="ex.: sábado, ou o quanto antes"></label>
+          </div>
+          <div id="agenda-verificacao" class="campo larga agenda-verificacao"></div>
+          <label class="pote" aria-hidden="true">Não preencha<input name="site" tabindex="-1" autocomplete="off"></label>
         </div>
       </fieldset>
 
       <div class="ficha-fim">
         <p class="ficha-aviso" role="alert" aria-live="polite" hidden></p>
-        <button class="btn btn-cheio btn-grande" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Enviar pelo WhatsApp</button>
+        <button class="btn btn-cheio btn-grande" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg><span id="ficha-enviar">Enviar pelo WhatsApp</span></button>
         <p class="ficha-nota">Atendimento com hora marcada. Em emergência grave, procure o pronto-atendimento mais próximo.</p>
       </div>
     </form>
+
+    <div class="ficha ficha-feita" id="ficha-feita" tabindex="-1" hidden>
+      <p class="chapeu">Horário pré-reservado</p>
+      <h3 id="feita-horario"></h3>
+      <p class="feita-texto">Falta só um passo: envie a ficha no WhatsApp para eu confirmar a visita.</p>
+      <a class="btn btn-cheio btn-grande" id="feita-wpp" href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Confirmar no WhatsApp</a>
+    </div>
 
     <p class="ficha-ou">Prefere conversar direto?</p>
     <div class="agendar-botoes">
@@ -375,7 +390,8 @@
   <a class="btn btn-cheio" data-wpp href="https://wa.me/5515996893103" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wpp"/></svg>Agendar no WhatsApp</a>
 </div>
 
-<script src="assets/js/site.js?v=5" defer></script>
+<script src="assets/js/agenda.js?v=1" defer></script>
+<script src="assets/js/site.js?v=6" defer></script>
 <script src="assets/js/amora.js" defer></script>
 </body>
 </html>
