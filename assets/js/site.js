@@ -20,7 +20,7 @@
     '',
     '*Serviço:* (consulta, vacina, exames, medicação, curativo, acompanhamento ou pet sitter)',
     '*O que está acontecendo:* ',
-    '*Melhor dia e horário:* '
+    '*Data:* a combinar com a Dra.'
   ].join('\n');
   $$('[data-wpp]').forEach(a => { a.href = 'https://wa.me/5515996893103?text=' + encodeURIComponent(MSG); });
 
@@ -41,29 +41,19 @@
     ficha.addEventListener('input', e => { const c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
     servAtualiza();
 
-    /* com a agenda ligada o botão reserva o horário; sem ela, segue direto para o WhatsApp */
-    const rotuloAgenda = $('[data-rotulo-agenda]');
-    const textoEnviar = $('#ficha-enviar');
-    const agenda = () => window.agendaFicha && window.agendaFicha.ativa ? window.agendaFicha : null;
-    ficha.addEventListener('agenda:modo', e => {
-      rotuloAgenda.hidden = !e.detail.ativa;
-      textoEnviar.textContent = e.detail.ativa ? 'Reservar horário' : 'Enviar pelo WhatsApp';
-    });
-
-    /* ficha em 3 etapas: atendimento, horário e dados */
+    /* ficha em 2 etapas: atendimento e dados; a data é combinada depois pelo WhatsApp */
     const etapas = $$('[data-etapa]', ficha);
     const atalhos = $$('[data-ir]', ficha);
     const voltar = $('#ficha-voltar');
     const seguir = $('#ficha-seguir');
-    const reservar = $('#ficha-botao');
+    const enviar = $('#ficha-botao');
     const resumo = $('#ficha-resumo');
     let atual = 1, alcancada = 1;
 
     const faltamEm = n => {
       const faltam = [];
       if (n === 1 && !marcados('servico').length) faltam.push(['servico', 'o serviço']);
-      if (n === 2) { const ag = agenda(); if (ag && !ag.escolha) faltam.push(['__agenda', 'o dia e o horário']); }
-      if (n === 3) {
+      if (n === 2) {
         [['tutor', 'seu nome'], ['telefone', 'o WhatsApp'], ['cidade', 'a cidade'], ['pet', 'o nome do pet']].forEach(([c, t]) => { if (!val(c)) faltam.push([c, t]); });
         if (val('telefone') && !/^\d{10,11}$/.test(val('telefone').replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, ''))) faltam.push(['telefone', 'o WhatsApp com DDD']);
         if (!marcados('especie').length) faltam.push(['especie', 'se é cão ou gato']);
@@ -75,7 +65,7 @@
       const faltam = faltamEm(n);
       $$('.campo.erro', ficha).forEach(c => c.classList.remove('erro'));
       if (!faltam.length) { aviso.hidden = true; return true; }
-      const alvo = c => c === '__agenda' ? $('#agenda') : $(`[name="${c}"]`, ficha);
+      const alvo = c => $(`[name="${c}"]`, ficha);
       faltam.forEach(([c]) => alvo(c).closest('.campo').classList.add('erro'));
       aviso.textContent = 'Falta preencher ' + faltam.map(x => x[1]).join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
       aviso.hidden = false;
@@ -93,14 +83,10 @@
         if (i === n) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
       });
       voltar.hidden = n === 1;
-      seguir.hidden = n === 3;
-      reservar.hidden = n !== 3;
+      seguir.hidden = n === 2;
+      enviar.hidden = n !== 2;
       aviso.hidden = true;
-      const ag = agenda();
-      const partes = n > 1 ? [marcados('servico').join(', ')] : [];
-      if (n === 3 && ag && ag.escolha) partes.push(ag.escolha.texto);
-      if (n === 3 && ag) ag.preparar();
-      resumo.textContent = partes.filter(Boolean).join(' · ');
+      resumo.textContent = n > 1 ? marcados('servico').join(', ') : '';
       resumo.hidden = !resumo.textContent;
       if (rolar) ficha.scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'start' });
     };
@@ -112,40 +98,17 @@
     seguir.addEventListener('click', () => { if (conferir(atual)) ir(atual + 1); });
     ir(1, false);
 
-    ficha.addEventListener('submit', async e => {
+    ficha.addEventListener('submit', e => {
       e.preventDefault();
-      if (ficha.dataset.enviando) return;
       /* Enter antes da última etapa só avança */
-      if (atual < 3) { if (conferir(atual)) ir(atual + 1); return; }
-      const incompleta = [1, 2, 3].find(n => faltamEm(n).length);
+      if (atual < 2) { if (conferir(atual)) ir(atual + 1); return; }
+      const incompleta = [1, 2].find(n => faltamEm(n).length);
       if (incompleta) { if (incompleta !== atual) ir(incompleta); conferir(incompleta); return; }
       aviso.hidden = true;
-      const ag = agenda();
       const linha = (rot, v) => v ? `*${rot}:* ${v}` : null;
       const peso = val('peso') ? val('peso').replace(/\s*kg$/i, '') + ' kg' : '';
       const cidade = [val('cidade'), val('bairro')].filter(Boolean).join(' · ');
       if (f.site.value) return;
-      const sitterTxt = sitter.hidden ? '' : `Pet sitter${val('sitter') ? ': ' + val('sitter') : ''}`;
-      let horario = null, reservado = false;
-      if (ag) {
-        const botao = $('button[type=submit]', ficha);
-        ficha.dataset.enviando = '1'; botao.disabled = true; textoEnviar.textContent = 'Reservando...';
-        horario = ag.escolha;
-        const r = await ag.reservar({
-          servicos: marcados('servico'), tutor: val('tutor'), telefone: val('telefone'), cidade: val('cidade'), bairro: val('bairro'),
-          pet: val('pet'), especie: marcados('especie')[0], raca: val('raca'), idade: val('idade'),
-          porte: marcados('porte')[0] || '', peso, vacinas: marcados('vacinas')[0] || '',
-          relato: [val('relato'), sitterTxt].filter(Boolean).join('\n')
-        });
-        delete ficha.dataset.enviando; botao.disabled = false; textoEnviar.textContent = 'Reservar horário';
-        if (r === 'ocupado') {
-          ir(2);
-          aviso.textContent = 'Esse horário acabou de ser reservado. Escolha outro, por favor.';
-          aviso.hidden = false;
-          return;
-        }
-        reservado = r === 'ok';
-      }
       const partes = [
         'Olá, Dra. Juliana! Vim pelo site e quero agendar um atendimento.',
         '', '*TUTOR*', linha('Nome', val('tutor')), linha('WhatsApp', val('telefone')), linha('Cidade', cidade),
@@ -153,25 +116,10 @@
         linha('Idade', val('idade')), linha('Porte', marcados('porte')[0]), linha('Peso', peso), linha('Vacinas em dia', marcados('vacinas')[0]),
         '', '*ATENDIMENTO*', linha('Serviço', marcados('servico').join(', ')),
         sitter.hidden ? null : linha('Datas do pet sitter', val('sitter')),
-        linha('O que está acontecendo', val('relato')), 
-        horario ? linha(reservado ? 'Horário pré-reservado' : 'Horário desejado', horario.texto) : linha('Melhor período', marcados('periodo')[0]),
-        horario ? null : linha('Dia de preferência', val('dia'))
+        linha('O que está acontecendo', val('relato')),
+        '', 'A data da visita fica a combinar com a Dra. por aqui.'
       ].filter(x => x !== null);
       const url = 'https://wa.me/5515996893103?text=' + encodeURIComponent(partes.join('\n'));
-      if (ag) {
-        /* depois de esperar a rede o navegador barra pop-up: o toque final fica num botão de verdade */
-        const feita = $('#ficha-feita');
-        $('.chapeu', feita).textContent = reservado ? 'Horário pré-reservado' : 'Não consegui reservar agora';
-        $('#feita-horario').textContent = horario.texto;
-        $('.feita-texto', feita).textContent = reservado
-          ? 'Falta só um passo: envie a ficha no WhatsApp para eu confirmar a visita.'
-          : 'Envie a ficha pelo WhatsApp com esse horário e eu vejo a disponibilidade com você.';
-        $('#feita-wpp').href = url;
-        ficha.hidden = true; feita.hidden = false;
-        feita.scrollIntoView({ behavior: reduz ? 'auto' : 'smooth', block: 'center' });
-        feita.focus({ preventScroll: true });
-        return;
-      }
       const w = window.open(url, '_blank');   // com 'noopener' o retorno é sempre null
       if (w) w.opener = null; else location.href = url;
     });
